@@ -114,7 +114,7 @@
 
 ;; Operators
 
-(defun distribute-pieces (number-of-pieces index1 index2 &optional (board (board-empty)))
+(defun distribute-pieces (number-of-pieces index1 index2)
   (labels 
     (
       (is-initial-hole (r c)
@@ -137,6 +137,42 @@
     )
     (if (and (valid-linep index1) (valid-line-indexp index2) (< 0 number-of-pieces))
       (go-through-dis-pie index1 index2 number-of-pieces)
+      nil
+    )
+  )
+)
+
+(defun game-operator (index1 index2 board)
+  "Denotes the play is to be made at line INDEX1 and index INDEX2 of the BOARD."
+  (labels 
+    (
+      (change-board (holes-list b)
+        "Executes changes made to the board where H are the holes to increment pieces and B the initial board."
+        (let* 
+          ( 
+            (current-position (car holes-list))
+            (line (nth 0 current-position))
+            (column (nth 1 current-position))
+            (next (cdr holes-list))
+          )
+          (cond 
+            ((null holes-list) b) ; Return the changed board.
+            ((and (null next) (or (= (+ (cell line column b) 1) 1) (= (+ (cell line column b) 1) 3) (= (+ (cell line column b) 1) 5))) (replace-value line column b 0)) ; Final is 1, 3 or 5, to 0.
+            (t (change-board (cdr holes-list) (increment-value line column b))) ; Go to the next hole with the new board.
+          )
+        )
+      ))
+    (if (and (valid-linep index1) (valid-line-indexp index2) (not (null board)))
+      (let* 
+        (
+          (total-pieces (cell index1 index2 board))
+          (holes (distribute-pieces total-pieces index1 index2))
+        )
+        (if (= total-pieces 0)
+          nil ; Invalid operation.
+          (replace-value index1 index2 (change-board holes board) 0) ; Turns the moved value to zero and returns the new board.
+        )
+      )
       nil
     )
   )
