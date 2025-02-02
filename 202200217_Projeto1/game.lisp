@@ -2,6 +2,7 @@
 ;;;; Related to the domain of the game, operators, heuristics.
 ;;;; Author: Rodrigo Baptista 202200217
 
+(in-package :game)
 
 ;;; Boards
 
@@ -11,7 +12,7 @@
 )
 
 (defun board-test ()
-  "Returns a 2x6 that corresponds to exercise d)."
+  "Returns a 2x6 board that corresponds to exercise d)."
   '((1 2 3 4 5 6)
     (6 5 4 3 2 1))
 )
@@ -112,7 +113,7 @@
   )
 )
 
-;; Operators
+;;; Operators
 
 (defun distribute-pieces (number-of-pieces index1 index2)
   (labels 
@@ -175,5 +176,30 @@
       )
       nil
     )
+  )
+)
+
+;;; Problem Domain Dependent Helper Functions
+
+(defun node-heuristic (state)
+  (cond 
+    ; TODO
+  )
+)
+
+(defun node-solutionp (node)
+  (if (or (null node) (null (node-state node)))
+    ; TODO
+  )
+)
+
+(defun compare-state (n1 n2)
+  "Compares the state of N1 and N2, returns T if they are the same, nil if they aren't." 
+  (let 
+    (
+      (n1-state (node-state n1))
+      (n2-state (node-state n2))
+    )
+    ; TODO
   )
 )
