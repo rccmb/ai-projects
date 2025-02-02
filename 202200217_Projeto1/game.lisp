@@ -114,4 +114,30 @@
 
 ;; Operators
 
-(defun distribute-pieces)
+(defun distribute-pieces (number-of-pieces index1 index2 &optional (board (board-empty)))
+  (labels 
+    (
+      (is-initial-hole (r c)
+        "Returns true if R and C represent the initial hole, nil if it doesn't."
+        (and (= r index1) (= c index2)))
+      (go-through-dis-pie (r c np)
+        "Returns the cells in which pieces will be distributed."
+        (cond 
+          ((= np 0) nil)
+          ((and (= r 1) (= c 5) (is-initial-hole r c)) (go-through-dis-pie 0 c np)) ; Edge case bottom right and initial node.
+          ((and (= r 0) (= c 0) (is-initial-hole r c)) (go-through-dis-pie 1 c np)) ; Edge case top left and initial node.
+          ((and (= r 0) (is-initial-hole r c)) (go-through-dis-pie 0 (- c 1) np)) ; Go to the left.
+          ((and (= r 1) (is-initial-hole r c)) (go-through-dis-pie 1 (+ c 1) np)) ; Go to the right.
+          ((and (= r 1) (= c 5) (not (is-initial-hole r c))) (cons (list r c) (go-through-dis-pie 0 c (- np 1)))) ; Edge case bottom right.
+          ((and (= r 0) (= c 0) (not (is-initial-hole r c))) (cons (list r c) (go-through-dis-pie 1 c (- np 1)))) ; Edge case top left.
+          ((and (= r 0) (not (is-initial-hole r c))) (cons (list r c) (go-through-dis-pie 0 (- c 1) (- np 1)))) ; Go to the left.
+          ((and (= r 1) (not (is-initial-hole r c))) (cons (list r c) (go-through-dis-pie 1 (+ c 1) (- np 1)))) ; Go to the right.
+        )
+      )
+    )
+    (if (and (valid-linep index1) (valid-line-indexp index2) (< 0 number-of-pieces))
+      (go-through-dis-pie index1 index2 number-of-pieces)
+      nil
+    )
+  )
+)
