@@ -2,8 +2,6 @@
 ;;;; Related to the domain of the game, operators, heuristics.
 ;;;; Author: Rodrigo Baptista 202200217
 
-(in-package :game)
-
 ;;; Boards
 
 (defun board-empty (&optional (rows 2) (columns 6))
@@ -181,25 +179,61 @@
 
 ;;; Problem Domain Dependent Helper Functions
 
-(defun node-heuristic (state)
+(defun board-piece-count (board)
+  "Goes through every line and row, getting the total piece count of a given BOARD."
+  (labels 
+    (
+      (board-helper (&optional (i1 0) (i2 0) (pieces 0))
+        (cond 
+          ((or (> i1 1)) pieces) ; We have ran through board lines. Finish.
+          ((= i2 6) (board-helper (+ i1 1) 0 pieces)) ; We have ran through line indexes.
+          (t (board-helper i1 (+ i2 1) (+ (cell i1 i2 board) pieces))) ; Go to the next cell and add current pieces.
+        ))
+    )
+    (board-helper) ; We start counting pieces.
+  )
+)
+
+(defun game-heuristic (board)
+  "Receives a BOARD and returns the heuristic (h = o - c) where o is the number of pieces to capture and c is the number of pieces captured."
   (cond 
     ; TODO
   )
 )
 
 (defun node-solutionp (node)
+  "Receives a NODE and checks if it's state is the problem solution."
   (if (or (null node) (null (node-state node)))
-    ; TODO
+    nil
+    (compare-state (create-node (board-empty) 0 0 nil) node) ; Creates a node with an empty board to check if the passed board has the same state.
   )
 )
 
 (defun compare-state (n1 n2)
-  "Compares the state of N1 and N2, returns T if they are the same, nil if they aren't." 
+  "Compares the state of N1 and N2, returns T if they are the same, nil if they aren't. In our context it compares if two boards are the same." 
   (let 
     (
       (n1-state (node-state n1))
       (n2-state (node-state n2))
     )
-    ; TODO
+    (labels
+      (
+        (check-line (l1 l2) 
+          "Receives two lines L1 and L2, returns T if they are equal."
+          (cond 
+            ((and (null l1) (null l2)) t)
+            ((= (car l1) (car l2)) (check-line (cdr l1) (cdr l2)))
+            (t nil)
+          ))
+        (check-board (b1 b2)
+          "Receives two boards B1 and B2, returns T if they are equal."
+          (cond
+            ((and (null b1) (null b2)) t)
+            ((check-line (car b1) (car b2)) (check-board (cdr b1) (cdr b2))) ; If this line was ok, go to the next.
+            (t nil)
+          ))
+      )
+      (check-board n1-state n2-state)
+    )
   )
 )
