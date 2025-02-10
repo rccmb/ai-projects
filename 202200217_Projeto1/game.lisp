@@ -15,6 +15,12 @@
     (6 5 4 3 2 1))
 )
 
+(defun board-test1 ()
+  "Returns a 2x6 board that corresponds to exercise d)."
+  '((1 0 0 0 5 0)
+    (6 0 4 0 0 0))
+)
+
 ;;; Validators 
 
 (defun valid-linep (index)
@@ -65,48 +71,31 @@
 
 ;;; Auxiliary Functions
 
-(defun replace-position (index line &optional (value 0))
-  "Replaces the value at INDEX in the LINE with VALUE. Line based."
-  (labels 
-    ((go-through-rep-pos (index line)
-      "Recursively goes through the LINE and replaces the value at INDEX."
-      (cond
-        ((null line) nil)
-        ((= index 0) (cons value (go-through-rep-pos (- index 1) (cdr line)))) ; We replace this value.
-        (t (cons (car line) (go-through-rep-pos (- index 1) (cdr line))))
-      ))
-    )
-    (if (valid-line-indexp index)
-      (go-through-rep-pos index line)
-      nil)
+(defun replace-position (position line &optional (value 0))
+  "Replaces the value at POSITION in the LINE with VALUE."
+  (cond
+    ((null line) nil)
+    ((= position 0) (cons value (replace-position (- position 1) (cdr line)))) ; We replace this value.
+    (t (cons (car line) (replace-position (- position 1) (cdr line) value)))
   )
 )
 
-(defun replace-value (index1 index2 board &optional (value 0))
-  "Replaces the value at line INDEX1 and index INDEX2 of the BOARD with VALUE. Board based."
-  (labels 
-    ((go-through-rep-val (index board) 
-      "Recursively goes through the BOARD and replaces the line at INDEX."
-      (cond
-        ((null board) nil)
-        ((= index 0) (cons (replace-position index2 (car board) value) (go-through-rep-val (- index 1) (cdr board)))) ; We replace this line.
-        (t (cons (car board) (go-through-rep-val (- index 1) (cdr board))))
-      ))
-    )
-    (if (and (valid-linep index1) (valid-line-indexp index2))
-      (go-through-rep-val index1 board)
-      nil
-    )
+(defun replace-value (line-index position-index board &optional (value 0))
+  "Replaces the value at LINE-INDEX and POSITION-INDEX of the BOARD with VALUE."
+  (cond
+    ((null board) nil)
+    ((= line-index 0) (cons (replace-position position-index (car board) value) (cdr board))) ; The first line.
+    (t (cons (car board) (list (replace-position position-index (car (cdr board)) value)))) ; The second line.
   )
 )
 
-(defun increment-value (index1 index2 board)
-  "Increments the value at line INDEX1 and index INDEX2 of the BOARD by 1."
+(defun increment-value (line-index position-index board)
+  "Increments the value at LINE-INDEX and POSITION-INDEX of the BOARD by 1."
   (let 
-    ((cell-value (cell index1 index2 board)))
+    ((cell-value (cell line-index position-index board)))
     (if (null cell-value)
       nil
-      (replace-value index1 index2 board (+ cell-value 1))
+      (replace-value line-index position-index board (+ cell-value 1))
     )
   )
 )
@@ -141,39 +130,41 @@
   )
 )
 
-(defun game-operator (index1 index2 board)
-  "Denotes the play is to be made at line INDEX1 and index INDEX2 of the BOARD."
-  (labels 
-    (
-      (change-board (holes-list b)
-        "Executes changes made to the board where H are the holes to increment pieces and B the initial board."
-        (let* 
-          ( 
-            (current-position (car holes-list))
-            (line (nth 0 current-position))
-            (column (nth 1 current-position))
-            (next (cdr holes-list))
-          )
-          (cond 
-            ((null holes-list) b) ; Return the changed board.
-            ((and (null next) (or (= (+ (cell line column b) 1) 1) (= (+ (cell line column b) 1) 3) (= (+ (cell line column b) 1) 5))) (replace-value line column b 0)) ; Final is 1, 3 or 5, to 0.
-            (t (change-board (cdr holes-list) (increment-value line column b))) ; Go to the next hole with the new board.
-          )
-        )
-      ))
-    (if (and (valid-linep index1) (valid-line-indexp index2) (not (null board)))
-      (let* 
-        (
-          (total-pieces (cell index1 index2 board))
-          (holes (distribute-pieces total-pieces index1 index2))
-        )
-        (if (= total-pieces 0)
-          nil ; Invalid operation.
-          (replace-value index1 index2 (change-board holes board) 0) ; Turns the moved value to zero and returns the new board.
-        )
+(defun change-board (holes-list b)
+  "Executes changes made to the board where HOLES-LIST are the holes to increment pieces and B the initial board."
+  (if (null holes-list)
+    b
+    (let* 
+      ( 
+        (current-position (car holes-list))
+        (line (nth 0 current-position))
+        (column (nth 1 current-position))
+        (next (cdr holes-list))
+        (current-cell (cell line column b))
       )
-      nil
+      (cond 
+        ((null holes-list) b) ; Return the changed board.
+        ((and (null next) (or (= (+ current-cell 1) 1) (= (+ current-cell 1) 3) (= (+ current-cell 1) 5))) (replace-value line column b 0)) ; Final is 1, 3 or 5, to 0.
+        (t (change-board (cdr holes-list) (increment-value line column b))) ; Go to the next hole with the new board.
+      )
     )
+  )
+)
+
+(defun game-operator (line-index position-index board)
+  "Denotes the play is to be made at line INDEX1 and index INDEX2 of the BOARD."
+  (if (and (valid-linep line-index) (valid-line-indexp position-index) (not (null board)))
+    (let* 
+      (
+        (total-pieces (cell line-index position-index board))
+        (holes (distribute-pieces total-pieces line-index position-index))
+      )
+      (if (= total-pieces 0)
+        nil ; Invalid operation.
+        (replace-value line-index position-index (change-board holes board) 0) ; Turns the moved value to zero and returns the new board.
+      )
+    )
+    nil
   )
 )
 
@@ -194,10 +185,14 @@
   )
 )
 
-(defun game-heuristic (board)
+(defun game-heuristic-base (board)
   "Receives a BOARD and returns the heuristic (h = o - c) where o is the number of pieces to capture and c is the number of pieces captured."
-  (cond 
-    ; TODO
+  (let* 
+    (
+      (total-pieces (get-total-pieces))
+      (current-pieces (board-piece-count board))
+      (captured-pieces (- total-pieces current-pieces)))
+    (- total-pieces captured-pieces)
   )
 )
 
@@ -210,30 +205,11 @@
 )
 
 (defun compare-state (n1 n2)
-  "Compares the state of N1 and N2, returns T if they are the same, nil if they aren't. In our context it compares if two boards are the same." 
-  (let 
-    (
-      (n1-state (node-state n1))
-      (n2-state (node-state n2))
-    )
-    (labels
-      (
-        (check-line (l1 l2) 
-          "Receives two lines L1 and L2, returns T if they are equal."
-          (cond 
-            ((and (null l1) (null l2)) t)
-            ((= (car l1) (car l2)) (check-line (cdr l1) (cdr l2)))
-            (t nil)
-          ))
-        (check-board (b1 b2)
-          "Receives two boards B1 and B2, returns T if they are equal."
-          (cond
-            ((and (null b1) (null b2)) t)
-            ((check-line (car b1) (car b2)) (check-board (cdr b1) (cdr b2))) ; If this line was ok, go to the next.
-            (t nil)
-          ))
-      )
-      (check-board n1-state n2-state)
-    )
-  )
-)
+  "Compares the state of N1 and N2 to check if two boards are identical."
+  (let ((n1-state (node-state n1))
+        (n2-state (node-state n2)))
+    (and n1-state n2-state  ; Ensure both states are not null
+         (= (length n1-state) 2)  ; Ensure the board has 2 rows
+         (every #'(lambda (row1 row2)
+                    (every #'= row1 row2))  ; Check if each row is identical
+                n1-state n2-state))))

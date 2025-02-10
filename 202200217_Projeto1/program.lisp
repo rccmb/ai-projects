@@ -6,13 +6,8 @@
 (defparameter *expanded-nodes* 0 "Total number of expanded nodes.")
 (defparameter *total-pieces* 0 "Total number of pieces in puzzle.")
 
-(defparameter *output-file*
-  (merge-pathnames "log.dat" (make-pathname :directory (pathname-directory *load-pathname*)))
-)
-
-(defparameter *input-file*
-  (merge-pathnames "problems.dat" (make-pathname :directory (pathname-directory *load-pathname*)))
-)
+(defparameter *output-file* (merge-pathnames "log.dat" (make-pathname :directory (pathname-directory *load-pathname*))))
+(defparameter *input-file* (merge-pathnames "problems.dat" (make-pathname :directory (pathname-directory *load-pathname*))))
 
 (load (merge-pathnames "game.lisp" (make-pathname :directory (pathname-directory *load-pathname*))))
 (load (merge-pathnames "search.lisp" (make-pathname :directory (pathname-directory *load-pathname*))))
@@ -40,7 +35,7 @@
             (start-time (get-internal-real-time)))
           (cond 
             ((node-solutionp initial-node) (format t "Error, the initial node can't be a solution node.~%")) ; Edge-case, the initial node is a solution node, end execution.
-            ((eq algorithm 'bfs) (show-result (funcall algorithm 'node-solutionp 'generate-children 'game-operator (list initial-node)) 'bfs start-time))
+            ((eq algorithm 'bfs) (show-result (funcall algorithm initial-node 'node-solutionp 'generate-children 'game-operator) 'bfs start-time))
             ((eq algorithm 'dfs) (show-result (funcall algorithm 'node-solutionp 'generate-children 'game-operator depth (list initial-node)) 'dfs start-time))
             ((eq algorithm 'a-star) (show-result (funcall algorithm 'node-solutionp 'generate-children 'game-operator heuristic (list initial-node)) 'a-star start-time))
           )
@@ -157,7 +152,6 @@
               ((null node) nil)
               (t (progn
                 (navigate-nodes (node-previous node)) ; Go to the parent node.
-                (show-node node algorithm) ; Shows information about this node.
                 (if (null (node-previous node))
                   (progn 
                     (format t "Initial State: ~A~%" (node-state node))
@@ -165,6 +159,7 @@
                   )
                   (format t "")
                 )
+                (show-node node algorithm) ; Shows information about this node.
                 (format stream "NODE:~%")
                 (format stream "- State: ~A~%" (node-state node))
                 (format stream "- Depth: ~D~%" (node-depth node))
@@ -197,5 +192,9 @@
 
 (defun get-expanded-nodes ()
   *expanded-nodes*
+)
+
+(defun get-total-pieces ()
+  *total-pieces*
 )
 
