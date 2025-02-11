@@ -150,7 +150,7 @@
 
 ;;; Search Algorithms.
 
-(defun bfs (initial-node eval generator operator)
+(defun bfs (initial-node objective generator operator)
   "Breadth-First-Search Algorithm. 11 - 3."
   (let 
     (
@@ -162,7 +162,7 @@
         (
           (first-node (pop open)) ; Take first node and remove from open.
           (children (remove-existing (funcall generator first-node operator 'bfs) closed 'bfs)) ; Generate children.
-          (solution-node (check-solution children eval)) ; Check for a solution.
+          (solution-node (check-solution children objective)) ; Check for a solution.
         )
         (when solution-node (return solution-node))
         (push first-node closed)
@@ -172,7 +172,7 @@
   )
 )
 
-(defun dfs (initial-node eval generator operator max-depth)
+(defun dfs (initial-node objective generator operator max-depth)
   "Depth-First-Search Algorithm. 17 - 3."
   (let 
     (
@@ -184,7 +184,7 @@
         (
           (first-node (pop open)) ; Take first node and remove from open.
           (children (remove-existing (funcall generator first-node operator 'dfs max-depth) closed 'dfs)) ; Generate children.
-          (solution-node (check-solution children eval)) ; Check for a solution.
+          (solution-node (check-solution children objective)) ; Check for a solution.
         )
         (when solution-node (return solution-node))
         (push first-node closed)
@@ -194,7 +194,7 @@
   )
 )
 
-(defun a-star (initial-node eval generator operator heuristic)
+(defun a-star (initial-node objective generator operator heuristic)
   "A* Algorithm. 25 - 3."
   (let 
     (
@@ -206,7 +206,7 @@
         (
           (first-node (pop open)) ; Take first node and remove from open.
           (children (remove-existing (funcall generator first-node operator 'a-star 0 heuristic) closed 'a-star)) ; Generate children.
-          (solution-node (check-solution (list first-node) eval)) ; Check for a solution.
+          (solution-node (check-solution (list first-node) objective)) ; Check for a solution.
         )
         (when solution-node (return solution-node))
         (push first-node closed)

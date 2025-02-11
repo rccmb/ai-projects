@@ -194,7 +194,10 @@
   (let* ((total-pieces (board-piece-count board))
          (empty-spaces (count-empty-spaces board))
          (piece-spread (piece-spread-factor board)))
-    (+ total-pieces (* 0.5 empty-spaces) (* 0.3 piece-spread))
+    (if (= total-pieces 0)
+      0
+      (+ total-pieces (* 0.5 empty-spaces) (* 0.3 piece-spread))
+    )
   )
 )
 
