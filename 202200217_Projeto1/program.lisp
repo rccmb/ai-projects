@@ -36,7 +36,7 @@
           (cond 
             ((node-solutionp initial-node) (format t "Error, the initial node can't be a solution node.~%")) ; Edge-case, the initial node is a solution node, end execution.
             ((eq algorithm 'bfs) (show-result (funcall algorithm initial-node 'node-solutionp 'generate-children 'game-operator) 'bfs start-time))
-            ((eq algorithm 'dfs) (show-result (funcall algorithm initial-node 'node-solutionp 'generate-children 'game-operator depth) 'dfs start-time))
+            ((eq algorithm 'dfs) (show-result (funcall algorithm initial-node 'node-solutionp 'generate-children 'game-operator depth) 'dfs start-time 0 depth))
             ((eq algorithm 'a-star) (show-result (funcall algorithm initial-node 'node-solutionp 'generate-children 'game-operator heuristic) 'a-star start-time heuristic))
           )
         )
@@ -148,7 +148,7 @@
   )
 )
 
-(defun show-result (solution algorithm start-time &optional (heuristic 0))
+(defun show-result (solution algorithm start-time &optional (heuristic 0) (max-depth 0))
   (let* 
     (
       (end-time (get-internal-real-time))
@@ -178,6 +178,7 @@
       (format stream "The penetrance is: ~,5f~%" penetrance)
       (format t "Solution depth is: ~D~%" depth)
       (format stream "Solution depth is: ~D~%" depth)
+      (if (eq algorithm 'dfs) (format stream "Maximum search depth is: ~A~%" max-depth))
       (labels 
         (
           (navigate-nodes (node)
