@@ -18,7 +18,7 @@
     (setq *expanded-nodes* 0)
     (setq *total-pieces* 0)
     (let 
-      ((initial-node (create-node (read-initial-state) 0 0 nil)))
+      ((initial-node (create-node (select-problem) 0 0 nil)))
       (progn
         (setq *total-pieces* (board-piece-count (node-state initial-node)))
         (let* 
@@ -36,10 +36,47 @@
           (cond 
             ((node-solutionp initial-node) (format t "Error, the initial node can't be a solution node.~%")) ; Edge-case, the initial node is a solution node, end execution.
             ((eq algorithm 'bfs) (show-result (funcall algorithm initial-node 'node-solutionp 'generate-children 'game-operator) 'bfs start-time))
-            ((eq algorithm 'dfs) (show-result (funcall algorithm 'node-solutionp 'generate-children 'game-operator depth (list initial-node)) 'dfs start-time))
-            ((eq algorithm 'a-star) (show-result (funcall algorithm 'node-solutionp 'generate-children 'game-operator heuristic (list initial-node)) 'a-star start-time))
+            ((eq algorithm 'dfs) (show-result (funcall algorithm initial-node 'node-solutionp 'generate-children 'game-operator depth) 'dfs start-time))
+            ((eq algorithm 'a-star) (show-result (funcall algorithm initial-node 'node-solutionp 'generate-children 'game-operator heuristic) 'a-star start-time))
           )
         )
+      )
+    )
+  )
+)
+
+(defun read-problems ()
+  "Reads the problems from problems.dat and returns them as a list."
+  (with-open-file (stream *input-file*)
+    (when stream
+      (loop 
+        for problem = (read stream nil nil)
+          while problem
+            collect problem
+      )
+    )
+  )
+)
+
+(defun select-problem ()
+  "Reads the problems from problems.dat and prompts the user to select one."
+  (let ((problems (read-problems)))
+    (format t "Available problems:~%")
+    (loop 
+      for problem in problems
+        for index from 1
+          do (format t "~a: ~a~%" index problem)
+    )
+    (format t "Problem number: ")
+    (let 
+      (
+        (choice (parse-integer (read-line) :junk-allowed t))
+      )
+      (if (and choice (> choice 0) (<= choice (length problems)))
+        (nth (1- choice) problems)
+        (progn
+          (format t "Invalid choice. Please try again.~%")
+          (select-problem))
       )
     )
   )
@@ -59,7 +96,10 @@
       ((depth (read)))
       (if (and (numberp depth) (> depth 0))
         depth
-        (read-depth)) 
+        (progn
+          (format t "Invalid choice. Please try again.~%")
+          (read-depth))
+      ) 
     )
   )
 )

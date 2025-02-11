@@ -171,17 +171,9 @@
 ;;; Problem Domain Dependent Helper Functions
 
 (defun board-piece-count (board)
-  "Goes through every line and row, getting the total piece count of a given BOARD."
-  (labels 
-    (
-      (board-helper (&optional (i1 0) (i2 0) (pieces 0))
-        (cond 
-          ((or (> i1 1)) pieces) ; We have ran through board lines. Finish.
-          ((= i2 6) (board-helper (+ i1 1) 0 pieces)) ; We have ran through line indexes.
-          (t (board-helper i1 (+ i2 1) (+ (cell i1 i2 board) pieces))) ; Go to the next cell and add current pieces.
-        ))
-    )
-    (board-helper) ; We start counting pieces.
+  "Returns the total piece count of a given 2x6 BOARD."
+  (loop for i1 below 2 
+    sum (loop for i2 below 6 sum (cell i1 i2 board))
   )
 )
 
@@ -196,6 +188,39 @@
   )
 )
 
+(defun game-heuristic-advanced (board)
+  "Heuristic based on total pieces left and their spread.
+   Fewer pieces and clustered formations lead to a lower heuristic value."
+  (let* ((total-pieces (board-piece-count board))
+         (empty-spaces (count-empty-spaces board))
+         (piece-spread (piece-spread-factor board)))
+    (+ total-pieces (* 0.5 empty-spaces) (* 0.3 piece-spread))
+  )
+)
+
+(defun count-empty-spaces (board)
+  "Counts the number of empty spaces on the board."
+  (loop for row in board sum (count 0 row))
+)
+
+(defun piece-spread-factor (board)
+  "Calculates a spread factor based on piece distribution.
+   A higher number indicates a more scattered board, which is worse."
+  (let ((spread 0))
+    (loop for i from 0 below 2 do
+      (loop for j from 0 below 6 do
+        (when (> (cell i j board) 0)
+          (when (and (valid-linep i) (valid-line-indexp (- j 1))) (incf spread))
+          (when (and (valid-linep i) (valid-line-indexp (+ j 1))) (incf spread))
+          (when (and (valid-linep (- i 1)) (valid-line-indexp j)) (incf spread))
+          (when (and (valid-linep (+ i 1)) (valid-line-indexp j)) (incf spread))
+        )
+      )
+    )
+    spread)
+)
+
+
 (defun node-solutionp (node)
   "Receives a NODE and checks if it's state is the problem solution."
   (if (or (null node) (null (node-state node)))
@@ -206,10 +231,14 @@
 
 (defun compare-state (n1 n2)
   "Compares the state of N1 and N2 to check if two boards are identical."
-  (let ((n1-state (node-state n1))
-        (n2-state (node-state n2)))
-    (and n1-state n2-state  ; Ensure both states are not null
-         (= (length n1-state) 2)  ; Ensure the board has 2 rows
-         (every #'(lambda (row1 row2)
-                    (every #'= row1 row2))  ; Check if each row is identical
-                n1-state n2-state))))
+  (let 
+    (
+      (n1-state (node-state n1))
+      (n2-state (node-state n2))
+    )
+    (and (not (null n1-state)) (not (null n2-state)) (= (length n1-state) 2)
+      (every #'(lambda (row1 row2) (every #'= row1 row2))  ; Rows are the same?
+        n1-state n2-state)
+    )
+  )
+)
