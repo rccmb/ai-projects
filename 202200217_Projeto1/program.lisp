@@ -12,7 +12,7 @@
 (load (merge-pathnames "game.lisp" (make-pathname :directory (pathname-directory *load-pathname*))))
 (load (merge-pathnames "search.lisp" (make-pathname :directory (pathname-directory *load-pathname*))))
 
-(defun initialize () ; TODO CHECK THIS AGAIN.
+(defun initialize ()
   (progn 
     (setq *generated-nodes* 0)
     (setq *expanded-nodes* 0)

@@ -95,7 +95,7 @@
       (when state  
         (set-generated-nodes (+ (get-generated-nodes) 1))
         (create-node 
-          state ; Board.
+          state ; Current problem state.
           (+ (node-depth node) 1) ; Depth.
           (if (eq algorithm 'a-star) ; A* is informed.
             (funcall heuristic state) 
@@ -108,6 +108,7 @@
   )
 )  
 
+; TODO: Make independent from problem domain.
 (defun generate-children (node operator algorithm &optional (max-depth 0) heuristic)
   "Generates all valid children of NODE using OPERATOR."
   (when 
