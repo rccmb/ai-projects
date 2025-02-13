@@ -108,7 +108,6 @@
   )
 )  
 
-; TODO: Make independent from problem domain.
 (defun generate-children (node operator algorithm &optional (max-depth 0) heuristic)
   "Generates all valid children of NODE using OPERATOR."
   (when 
@@ -152,7 +151,7 @@
 ;;; Search Algorithms.
 
 (defun bfs (initial-node objective generator operator)
-  "Breadth-First-Search Algorithm. 11 - 3."
+  "Breadth-First-Search Algorithm. 11 - 3. Receives an INITIAL-NODE, the OBJECTIVE state, the GENERATOR function and the game OPERATOR."
   (let 
     (
       (open (list initial-node))
@@ -174,7 +173,7 @@
 )
 
 (defun dfs (initial-node objective generator operator max-depth)
-  "Depth-First-Search Algorithm. 17 - 3."
+  "Depth-First-Search Algorithm. 17 - 3. Receives an INITIAL-NODE, the OBJECTIVE state, the GENERATOR function, the game OPERATOR and the MAX-DEPTH allowed for the search."
   (let 
     (
       (open (list initial-node))
@@ -196,7 +195,7 @@
 )
 
 (defun a-star (initial-node objective generator operator heuristic)
-  "A* Algorithm. 25 - 3."
+  "A* Algorithm. 25 - 3. Receives an INITIAL-NODE, the OBJECTIVE state, the GENERATOR function, the game OPERATOR and an HEURISTIC function."
   (let 
     (
       (open (list initial-node))

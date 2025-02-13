@@ -3,8 +3,6 @@
 ;;;; Author: Rodrigo Baptista 202200217
 
 (defparameter *game-not-finished* t "If the game is finished.")
-(defparameter *player-one-score* 0 "Player 1 score.")
-(defparameter *player-two-score* 0 "Player 2 score.")
 
 (load (merge-pathnames "algoritmo.lisp" (make-pathname :directory (pathname-directory *load-pathname*))))
 (load (merge-pathnames "puzzle.lisp" (make-pathname :directory (pathname-directory *load-pathname*))))
@@ -12,8 +10,6 @@
 (defun initialize ()
   (progn
     (setq *game-not-finished* t)
-    (setq *player-one-score* 0)
-    (setq *player-two-score* 0)
     (let 
       ((mode (read-mode)))
       (cond 
@@ -41,19 +37,19 @@
   (let 
     (
       (current-player first-player)
-      (current-board (board-initial))  
+      (current-node (create-node (board-initial) 0 0 nil))  
     )
     (loop while *game-not-finished* do
       (progn
-        (print-board current-board) 
+        (print-board (node-state current-node)) 
 
         (cond ; Check if the current player can move.
-          ((and (= current-player 1) (= (line-piece-count 1 current-board) 0)) ; Human can't move.
+          ((and (= current-player 1) (= (line-piece-count 1 (node-state current-node)) 0)) ; Human can't move.
             (progn
               (format t "You can not move! Passing turn...~%")
-              (setf current-player 2)
+              (setf current-player -1)
             ))
-          ((and (= current-player 2) (= (line-piece-count 0 current-board) 0)) ; Computer can't move.
+          ((and (= current-player -1) (= (line-piece-count 0 (node-state current-node)) 0)) ; Computer can't move.
             (progn
               (format t "Computer could not move! Your turn again!~%")
               (setf current-player 1)
@@ -63,22 +59,19 @@
         (cond ; Current turn.
           ((= current-player 1) ; Human to play.
             (let
-              ((human-move (read-human-move current-board))) ; Only valid moves get returned.
+              ((human-move (read-human-move (node-state current-node) current-player))) ; Only valid moves get returned.
               (progn
-                (setf current-board (game-operator 1 human-move current-board))
-                (print-move 1 human-move)
+                (setf current-node (game-operator 1 human-move current-node))
+                (print-move current-player human-move)
               )
             )) 
-          ((= current-player 2) ; Computer to play.
-            ()) ; HERE TO MAKE MOVE
+          ((= current-player -1) ; Computer to play.
+            ())
         )
         
-        ; (if (= current-player 1) ; Change the player.
-        ;   (setf current-player 2)
-        ;   (setf current-player 1)
-        ; )
+        (setf current-player (* current-player -1))
 
-        (print-score)
+        (print-score (node-score-p1 current-node) (node-score-p2 current-node))
       )
     )
   )
@@ -95,21 +88,20 @@
 ;         (print-board current-board) 
 
 ;         (cond ; Check if the current player can move.
-;           ((and (= current-player 1) (= (line-piece-count 1 current-board) 0)) (setf current-player 2))
-;           ((and (= current-player 2) (= (line-piece-count 0 current-board) 0)) (setf current-player 1))
+;           ((and (= current-player 1) (= (line-piece-count 1 current-board) 0)) (setf current-player -1))
+;           ((and (= current-player -1) (= (line-piece-count 0 current-board) 0)) (setf current-player 1))
 ;         ) 
 
 ;         (cond ; Current turn.
-;           ((= current-player 1)
+;           ((= current-player 1) ; Player 1 to move.
 ;             ()) 
-;           ((= current-player 2)
+;           ((= current-player -1) ; Player 2 to move.
 ;             ()) 
 ;         )
 
-;         (if (= current-player 1) ; Change the player.
-;           (setf current-player 2)
-;           (setf current-player 1)
-;         )
+;         (setf current-player (* current-player -1))
+
+;         (print-score)
 ;       )
 ;     )
 ;   )
@@ -144,7 +136,7 @@
       ((player (read)))
       (cond 
         ((= player 1) 1)
-        ((= player 2) 2)
+        ((= player 2) -1)
         (t (read-first-player))
       )
     )
@@ -179,7 +171,7 @@
   )
 )
 
-(defun read-human-move (board)
+(defun read-human-move (board current-player)
   "Allows for the human to make a move."
   (labels
     (
@@ -189,7 +181,7 @@
           (format t "Choose a hole to move [1, 6]: ~%")
           (let
             ((hole-chosen (read)))
-            (if (and (numberp hole-chosen) (> hole-chosen 0) (< hole-chosen 7) (not (= (cell 1 (- hole-chosen 1) board) 0))) 
+            (if (and (numberp hole-chosen) (> hole-chosen 0) (< hole-chosen 7) (not (= (cell (if (= current-player 1) current-player 0) (- hole-chosen 1) board) 0))) 
               (- hole-chosen 1) ; Correct to index.
               (progn 
                 (format t "Invalid choice, hole needs to be in the interval [1, 6] and must not have 0 pieces.~%")
@@ -218,14 +210,14 @@
 )
 
 ; TODO, also write to log.dat
-(defun print-score ()
+(defun print-score (score-p1 score-p2)
   (progn 
-    (format t "Player 1 score is: ~d~%" *player-one-score*)
-    (format t "Player 2 score is: ~d~%" *player-two-score*)
+    (format t "Player 1 score is: ~d~%" score-p1)
+    (format t "Player 2 score is: ~d~%" score-p2)
     (cond
-      ((< *player-one-score* *player-two-score*) (format t "Player 1 is losing by ~d points.~%" (- *player-two-score* *player-one-score*)))
-      ((= *player-one-score* *player-two-score*) (format t "Player 1 and Player 2 are tied!~%"))
-      ((> *player-one-score* *player-two-score*) (format t "Player 2 is losing by ~d points.~%" (- *player-one-score* *player-two-score*)))
+      ((< score-p1 score-p2) (format t "Player 1 is losing by ~d points.~%" (- score-p2 score-p1)))
+      ((= score-p1 score-p2) (format t "Player 1 and Player 2 are tied!~%"))
+      ((> score-p1 score-p2) (format t "Player 2 is losing by ~d points.~%" (- score-p1 score-p2)))
     )
   )
 )
@@ -242,20 +234,4 @@
 
 (defun set-game-finished ()
   (setq *game-not-finished* nil)
-)
-
-(defun set-player-one-score (value)
-  (setq *player-one-score* value)
-)
-
-(defun get-player-one-score ()
-  *player-one-score*
-)
-
-(defun set-player-two-score (value)
-  (setq *player-two-score* value)
-)
-
-(defun get-player-two-score ()
-  *player-two-score*
 )

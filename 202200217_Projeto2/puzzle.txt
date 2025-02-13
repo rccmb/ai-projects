@@ -4,7 +4,7 @@
 
 (defun board-initial ()
   "Returns a 2x6 board that corresponds initial game state."
-  '((8 8 8 8 8 8)
+  '((8 8 0 8 8 8)
     (8 8 8 8 8 8))
 )
 
@@ -133,7 +133,7 @@
         ((null holes-list) b) ; Return the changed board.
         ((and (null next) (or (= (+ current-cell 1) 1) (= (+ current-cell 1) 3) (= (+ current-cell 1) 5)) (not (= line initial-line))) ; Final is 1, 3 or 5, to 0, if the line is not the starting line.
           (progn
-            (if (= initial-line 1) ; Sets the score.
+            (if (= initial-line 1) ; Sets the score (REAL). Player one is always the SECOND line (INDEX 1) of the board. While player two is always the FIRST line (INDEX 0) of the board.
               (set-player-one-score (+ (get-player-one-score) (+ current-cell 1)))
               (set-player-two-score (+ (get-player-two-score) (+ current-cell 1)))
             ) 
@@ -177,6 +177,7 @@
   (reduce #'+ (nth line-index board))
 )
 
+; TODO, adapt to new problem.
 (defun node-solutionp (node)
   "Receives a NODE and checks if it's state is the problem solution."
   (if (or (null node) (null (node-state node)))
@@ -185,6 +186,7 @@
   )
 )
 
+; TODO, adapt to new problem.
 (defun compare-state (n1 n2)
   "Compares the state of N1 and N2 to check if two boards are identical."
   (let 
