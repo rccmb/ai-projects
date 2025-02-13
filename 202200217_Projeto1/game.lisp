@@ -15,12 +15,6 @@
     (6 5 4 3 2 1))
 )
 
-(defun board-test1 ()
-  "Returns a 2x6 board that corresponds to exercise d)."
-  '((1 0 0 0 5 0)
-    (6 0 4 0 0 0))
-)
-
 ;;; Validators 
 
 (defun valid-linep (index)

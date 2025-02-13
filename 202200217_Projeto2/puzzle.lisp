@@ -2,10 +2,17 @@
 ;;;; Related to the domain of the game, operators, heuristics.
 ;;;; Author: Rodrigo Baptista 202200217
 
+;;; Boards
+
+(defun board-empty (&optional (rows 2) (columns 6))
+  "Returns a 2x6 board with all cells empty."
+  (make-list rows :initial-element (make-list columns :initial-element '0))
+)
+
 (defun board-initial ()
   "Returns a 2x6 board that corresponds initial game state."
-  '((0 4 0 0 0 2)
-    (10 0 4 0 0 4))
+  '((8 8 8 8 8 8)
+    (8 8 8 8 8 8))
 )
 
 ;;; Validators 
@@ -137,13 +144,17 @@
             (create-node 
               (replace-value line column (node-state node) 0) 
               (+ (node-score-p1 node) (+ current-cell 1)) 
-              (node-score-p2 node) 
-              (node-previous node)) ; Returns the new node. Player 1 captures.
+              (node-score-p2 node)
+              0 ; Doesn't matter here.
+              0 ; Doesn't matter here.
+            ) ; Returns the new node. Player 1 captures.
             (create-node 
               (replace-value line column (node-state node) 0) 
               (node-score-p1 node) 
               (+ (node-score-p2 node) (+ current-cell 1)) 
-              (node-previous node)) ; Returns the new node. Player 2 captures.
+              0 ; Doesn't matter here.
+              0 ; Doesn't matter here.
+            ) ; Returns the new node. Player 2 captures.
           ) 
         ) 
         (t 
@@ -152,8 +163,9 @@
             (create-node 
               (increment-value line column (node-state node)) 
               (node-score-p1 node) 
-              (node-score-p2 node) 
-              (node-previous node)
+              (node-score-p2 node)
+              0 ; Doesn't matter here.
+              0 ; Doesn't matter here.
             ) ; New node where no captures were made.
             initial-line)) ; Go to the next hole with the new node.
       )
@@ -177,7 +189,8 @@
           (create-node 
             (replace-value line-index position-index (node-state new-node) 0) 
             (node-score-p1 new-node) 
-            (node-score-p2 new-node) 
+            (node-score-p2 new-node)
+            (+ (node-depth node) 1)
             node
           ) ; Turns the moved value to zero and returns the new node.
         )
@@ -200,3 +213,30 @@
   "Returns the total piece count of a given line of a BOARD."
   (reduce #'+ (nth line-index board))
 )
+
+(defun node-solutionp (node)
+  "Receives a NODE and checks if it's state is the problem solution."
+  (if (or (null node) (null (node-state node)))
+    nil
+    (compare-state (create-node (board-empty) 0 0 0 nil) node) ; Creates a node with an empty board to check if the passed board has the same state.
+  )
+)
+
+(defun compare-state (n1 n2)
+  "Compares the state of N1 and N2 to check if two boards are identical."
+  (let 
+    (
+      (n1-state (node-state n1))
+      (n2-state (node-state n2))
+    )
+    (and (not (null n1-state)) (not (null n2-state)) (= (length n1-state) 2)
+      (every #'(lambda (row1 row2) (every #'= row1 row2))  ; Rows are the same?
+        n1-state n2-state)
+    )
+  )
+)
+
+(defun evaluate-node (node)
+  "Evaluates the score of a given NODE. Example: (- 10 5) = 5 for 1 (- 5 10) = -5 for -1. * NEGAMAX."
+  (- (node-score-p1 node) (node-score-p2 node)))
+
