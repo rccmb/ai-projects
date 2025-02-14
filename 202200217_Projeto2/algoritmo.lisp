@@ -72,7 +72,7 @@
   )
 )
 
-(defun negamax (node depth alpha beta player generator objective evaluation game-operator &optional search-time)
+(defun negamax (node depth alpha beta player generator objective evaluation game-operator)
   "Receives a NODE, a max search DEPTH, value of ALPHA, BETA, current PLAYER, the GENERATOR function for the children, the OBJECTIVE node, an EVALUATION function and the GAME-OPERATOR. 34 - 4."
   (if (or (= depth 0) (funcall objective node))
     (* player (funcall evaluation node))
@@ -84,7 +84,7 @@
         )
         (dolist (child children)
           (let 
-            ((score (- (negamax child (1- depth) (- beta) (- alpha) (- player) generator objective evaluation game-operator search-time))))
+            ((score (- (negamax child (1- depth) (- beta) (- alpha) (- player) generator objective evaluation game-operator))))
             (when (> score max-value) (setf max-value score))
             (when (> score alpha) (setf alpha score))
             (when (>= alpha beta) (return max-value))

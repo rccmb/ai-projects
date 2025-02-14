@@ -9,6 +9,7 @@
   (make-list rows :initial-element (make-list columns :initial-element '0))
 )
 
+; TODO: Make sure this is initial.
 (defun board-initial ()
   "Returns a 2x6 board that corresponds initial game state."
   '((8 8 8 8 8 8)
@@ -237,6 +238,7 @@
 )
 
 (defun evaluate-node (node)
-  "Evaluates the score of a given NODE. Example: (- 10 5) = 5 for 1 (- 5 10) = -5 for -1. * NEGAMAX."
-  (- (node-score-p1 node) (node-score-p2 node)))
+  "Evaluates the score of a given NODE."
+  (- (node-score-p1 node) (node-score-p2 node))
+)
 
