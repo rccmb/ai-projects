@@ -75,19 +75,26 @@
 (defun negamax (node depth alpha beta player generator objective evaluation game-operator)
   "Receives a NODE, a max search DEPTH, value of ALPHA, BETA, current PLAYER, the GENERATOR function for the children, the OBJECTIVE node, an EVALUATION function and the GAME-OPERATOR. 34 - 4."
   (if (or (= depth 0) (funcall objective node))
-    (* player (funcall evaluation node))
-    (block nil
-      (let 
-        (
-          (max-value -1.0e+9)
-          (children (funcall generator node game-operator player))
-        )
+    (* player (funcall evaluation node)) ; Objective node or final search depth.
+    (let 
+      (
+        (max-value -1.0e+9)
+        (children (funcall generator node game-operator player))
+      )
+      (progn 
+        (setf children (sort children #'> :key (lambda (child) (* player (funcall evaluation child)))))
         (dolist (child children)
           (let 
-            ((score (- (negamax child (1- depth) (- beta) (- alpha) (- player) generator objective evaluation game-operator))))
+            ((score (- (negamax child (- depth 1) (- beta) (- alpha) (- player) generator objective evaluation game-operator))))
             (when (> score max-value) (setf max-value score))
-            (when (> score alpha) (setf alpha score))
-            (when (>= alpha beta) (return max-value))
+            (when (> score alpha) 
+              (setf alpha score)
+              (set-alpha-cuts (+ (get-alpha-cuts) 1))
+            )
+            (when (>= alpha beta) 
+              (set-beta-cuts (+ (get-beta-cuts) 1))
+              (return max-value) ; Prune.
+            )
           )
         )
         max-value

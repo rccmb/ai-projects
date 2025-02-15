@@ -125,7 +125,6 @@
   )
 )
 
-; TODO Has to return a new node. MUST CHECK.
 (defun change-board (holes-list node initial-line)
   "Executes changes made to the board where HOLES-LIST are the holes to increment pieces and B the initial board."
   (if (null holes-list)
@@ -174,7 +173,6 @@
   )
 )
 
-; TODO Has to return a new node. MUST CHECK.
 (defun game-operator (line-index position-index node)
   "Denotes the play is to be made at line INDEX1 and index INDEX2 of the BOARD."
   (if (and (valid-linep line-index) (valid-line-indexp position-index) (not (null node)))

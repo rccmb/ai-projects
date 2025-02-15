@@ -2,7 +2,16 @@
 ;;;; Related to user interaction and interface.
 ;;;; Author: Rodrigo Baptista 202200217
 
+(defconstant *search-depth* 5 "Maximum search depth allowed for negamax.")
+
 (defparameter *current-turn* 1 "Current game turn.")
+(defparameter *hash-table* (make-hash-table) "Memoization, stores previous game moves.")
+(defparameter *hash-table-hit-rate* 0 "Hit rate for the hash table.")
+(defparameter *hash-table-miss-rate* 0 "Miss rate for the hash table.")
+(defparameter *alpha-cuts* 0 "Number of alpha cuts, current run.")
+(defparameter *beta-cuts* 0 "Number of beta cuts, current run.")
+(defparameter *alpha-cuts-total* 0 "Number of alpha cuts, total through match.")
+(defparameter *beta-cuts-total* 0 "Number of beta cuts, total through match.")
 
 (load (merge-pathnames "algoritmo.lisp" (make-pathname :directory (pathname-directory *load-pathname*))))
 (load (merge-pathnames "puzzle.lisp" (make-pathname :directory (pathname-directory *load-pathname*))))
@@ -10,6 +19,13 @@
 (defun initialize ()
   (progn
     (setq *current-turn* 1)
+    (setq *hash-table* (make-hash-table))
+    (setq *hash-table-hit-rate* 0)
+    (setq *hash-table-miss-rate* 0)
+    (setq *alpha-cuts* 0)
+    (setq *beta-cuts* 0)
+    (setq *alpha-cuts-total* 0)
+    (setq *beta-cuts-total* 0)
     (let 
       ((mode (read-mode)))
       (cond 
@@ -157,7 +173,7 @@
 (defun read-computer-time-limit ()
   "Allows for the user to decide the time limit for computer moves. Between 1 and 20 seconds."
   (progn
-    (format t "Maximum number of seconds allowed for computer move [1, 20]: ")
+    (format t "Maximum number of seconds allowed for computer move [1, 20] (NOT IMPLEMENTED, USES A FIXED SEARCH DEPTH): ")
     (let
       ((time-limit (read)))
       (if (and (numberp time-limit) (> time-limit 0) (< time-limit 21))
@@ -171,7 +187,7 @@
 (defun read-game-time-limit ()
   "Allows for the user to decide the time limit for computer-vs-computer games. In minutes."
   (progn
-    (format t "Maximum number of minutes allowed for game: ")
+    (format t "Maximum number of minutes allowed for game (NOT IMPLEMENTED, USES A FIXED SEARCH DEPTH): ")
     (let
       ((time-limit (read)))
       (if (and (numberp time-limit) (> time-limit 0))
@@ -215,30 +231,47 @@
     (format t "Computer thinking...~%")
     (let* 
       (
-        (search-depth 6) ; Maximum search depth allowed.
         (alpha -1.0e+9)
         (beta 1.0e+9)
         (best-move nil)
         (best-score -1.0e+9)
         (line (if (= current-player 1) 1 0))
+        (hash-key (list current-player (node-state current-node)))
       )
-      (loop for pos from 0 below 6 do
-        (let 
-          ((child (game-operator line pos current-node)))
-          (if (not (null child))
-            (let 
-              ((score (- (negamax child (1- search-depth) (- beta) (- alpha) (- current-player) 'generate-children 'node-solutionp 'evaluate-node 'game-operator))))
-              (if (> score best-score)
-                (progn
-                  (setf best-score score)
-                  (setf best-move pos)
+      (progn 
+        (if (gethash hash-key *hash-table*)
+          (progn ; In hash table.
+            (setf best-move (gethash hash-key *hash-table*))
+            (setq *hash-table-hit-rate* (+ *hash-table-hit-rate* 1))
+          ) 
+          (progn ; Not in hash table.
+            (loop for pos from 0 below 6 do 
+              (let 
+                ((child (game-operator line pos current-node)))
+                (if (not (null child))
+                  (let 
+                    ((score (- (negamax child *search-depth* (- beta) (- alpha) (- current-player) 'generate-children 'node-solutionp 'evaluate-node 'game-operator))))
+                    (if (>= score best-score)
+                      (progn
+                        (setf best-score score)
+                        (setf best-move pos)
+                      )
+                    )
+                  )
                 )
               )
             )
+            (setf (gethash hash-key *hash-table*) best-move) ; Memorize the best move.
+            (setq *hash-table-miss-rate* (+ *hash-table-miss-rate* 1))
           )
         )
+        (print-cuts)
+        (setq *alpha-cuts-total* (+ *alpha-cuts* *alpha-cuts-total*))
+        (setq *alpha-cuts* 0)
+        (setq *beta-cuts-total* (+ *beta-cuts* *beta-cuts-total*))
+        (setq *beta-cuts* 0)
+        best-move
       )
-      best-move
     )
   )
 )
@@ -292,6 +325,14 @@
   )
 )
 
+(defun print-cuts ()
+  (progn
+    (format t "Number of alpha cuts: ~d~%" *alpha-cuts*)
+    (format t "Number of beta cuts: ~d~%" *beta-cuts*)
+  )
+)
+
+; TODO, also write to log.dat
 (defun print-game-over (game-node)
   (let 
     (
@@ -310,7 +351,27 @@
         ((= score-p1 score-p2) (format t "TIE!~%Player 1 and Player 2 tied!~%"))
         ((> score-p1 score-p2) (format t "Player 1 WINS!~%Player 2 lost by ~d points.~%" (- score-p1 score-p2)))
       )
-      (format t "A total of ~d moves were made over ~d turns." game-depth *current-turn*)
+      (format t "A total of ~d moves (game depth) were made over ~d turns.~%" game-depth *current-turn*)
+      (format t "Hash table hit rate: ~d/~d. ~%" *hash-table-hit-rate* *hash-table-miss-rate*)
+      (format t "Total number of alpha cuts: ~d~%" *alpha-cuts-total*)
+      (format t "Total number of beta cuts: ~d~%" *beta-cuts-total*)
+      (format t "Maximum search depth for negamax: ~d~%" *search-depth*)
     )
   )
+)
+
+(defun get-alpha-cuts ()
+  *alpha-cuts*
+)
+
+(defun set-alpha-cuts (value)
+  (setq *alpha-cuts* value)
+)
+
+(defun get-beta-cuts ()
+  *beta-cuts*
+)
+
+(defun set-beta-cuts (value)
+  (setq *beta-cuts* value)
 )
