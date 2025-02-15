@@ -2,7 +2,7 @@
 ;;;; Related to user interaction and interface.
 ;;;; Author: Rodrigo Baptista 202200217
 
-(defconstant *search-depth* 5 "Maximum search depth allowed for negamax.")
+(defconstant *search-depth* 10 "Maximum search depth allowed for negamax.")
 
 (defparameter *current-turn* 1 "Current game turn.")
 (defparameter *hash-table* (make-hash-table) "Memoization, stores previous game moves.")
@@ -40,8 +40,8 @@
         )
         ((eq mode 'computer-vs-computer) 
           (let 
-            ((game-time-limit (read-game-time-limit)))
-            (game 1 mode 0 game-time-limit)
+            ((computer-time-limit (read-computer-time-limit)))
+            (game 1 mode computer-time-limit)
           )
         )
       )
@@ -49,7 +49,7 @@
   )
 )
 
-(defun game (first-player mode &optional (computer-time-limit 0) (game-time-limit 0))
+(defun game (first-player mode &optional (computer-time-limit 0))
   (let 
     (
       (current-player first-player)
@@ -77,7 +77,7 @@
                 ) 
                 ((= current-player -1) ; Computer to play.
                   (let 
-                    ((best-move (read-computer-move current-player current-node)))
+                    ((best-move (read-computer-move current-player current-node computer-time-limit)))
                     (if (not (null best-move))
                       (progn
                         (setf current-node (game-operator 0 best-move current-node))
@@ -90,7 +90,7 @@
               (cond ; Computer VS Computer
                 ((= current-player 1)
                   (let 
-                    ((best-move (read-computer-move current-player current-node)))
+                    ((best-move (read-computer-move current-player current-node computer-time-limit)))
                     (if (not (null best-move))
                       (progn
                         (setf current-node (game-operator 1 best-move current-node))
@@ -101,7 +101,7 @@
                 ) 
                 ((= current-player -1)
                   (let 
-                    ((best-move (read-computer-move current-player current-node)))
+                    ((best-move (read-computer-move current-player current-node computer-time-limit)))
                     (if (not (null best-move))
                       (progn
                         (setf current-node (game-operator 0 best-move current-node))
@@ -123,7 +123,7 @@
 
         (if (board-emptyp (node-state current-node)) 
           (progn 
-            (print-game-over current-node)
+            (print-game-over current-node computer-time-limit)
             (return)
           )
         )
@@ -173,26 +173,12 @@
 (defun read-computer-time-limit ()
   "Allows for the user to decide the time limit for computer moves. Between 1 and 20 seconds."
   (progn
-    (format t "Maximum number of seconds allowed for computer move [1, 20] (NOT IMPLEMENTED, USES A FIXED SEARCH DEPTH): ")
+    (format t "Maximum number of seconds allowed for computer move [1, 20]: ")
     (let
       ((time-limit (read)))
       (if (and (numberp time-limit) (> time-limit 0) (< time-limit 21))
         time-limit
         (read-computer-time-limit)
-      )
-    )
-  )
-)
-
-(defun read-game-time-limit ()
-  "Allows for the user to decide the time limit for computer-vs-computer games. In minutes."
-  (progn
-    (format t "Maximum number of minutes allowed for game (NOT IMPLEMENTED, USES A FIXED SEARCH DEPTH): ")
-    (let
-      ((time-limit (read)))
-      (if (and (numberp time-limit) (> time-limit 0))
-        time-limit
-        (read-game-time-limit)
       )
     )
   )
@@ -226,7 +212,7 @@
   )
 )
 
-(defun read-computer-move (current-player current-node)
+(defun read-computer-move (current-player current-node &optional (computer-time-limit -1))
   (progn
     (format t "Computer thinking...~%")
     (let* 
@@ -237,6 +223,7 @@
         (best-score -1.0e+9)
         (line (if (= current-player 1) 1 0))
         (hash-key (list current-player (node-state current-node)))
+        (start-time (get-internal-real-time))
       )
       (progn 
         (if (gethash hash-key *hash-table*)
@@ -250,7 +237,7 @@
                 ((child (game-operator line pos current-node)))
                 (if (not (null child))
                   (let 
-                    ((score (- (negamax child *search-depth* (- beta) (- alpha) (- current-player) 'generate-children 'node-solutionp 'evaluate-node 'game-operator))))
+                    ((score (- (negamax child *search-depth* (- beta) (- alpha) (- current-player) 'generate-children 'node-solutionp 'evaluate-node 'game-operator start-time computer-time-limit))))
                     (if (>= score best-score)
                       (progn
                         (setf best-score score)
@@ -333,7 +320,7 @@
 )
 
 ; TODO, also write to log.dat
-(defun print-game-over (game-node)
+(defun print-game-over (game-node computer-time-limit)
   (let 
     (
       (score-p1 (node-score-p1 game-node))
@@ -355,6 +342,7 @@
       (format t "Hash table hit rate: ~d/~d. ~%" *hash-table-hit-rate* *hash-table-miss-rate*)
       (format t "Total number of alpha cuts: ~d~%" *alpha-cuts-total*)
       (format t "Total number of beta cuts: ~d~%" *beta-cuts-total*)
+      (format t "Seconds per move for the computer: ~d seconds.~%" computer-time-limit)
       (format t "Maximum search depth for negamax: ~d~%" *search-depth*)
     )
   )
