@@ -41,37 +41,6 @@
   )
 )
 
-(defun new-child (node operator index1 index2)
-  (when node
-    (let 
-      ((child (funcall operator index1 index2 node))) ; Calls the operator, which returns a node with the new board and score.
-      (if (not (null child))
-        child
-        nil
-      )
-    )
-  )
-)  
-
-(defun generate-children (node operator current-player)
-  (when 
-    (and (not (null node)))
-    (let 
-      (
-        (children '())
-        (i1 (if (= current-player 1) 1 0))
-      )
-      (loop for i2 from 0 below 6 do ; Board columns.
-        (let 
-          ((child (new-child node operator i1 i2)))
-          (when child (push child children))
-        )
-      )
-      (nreverse children)
-    )
-  )
-)
-
 (defun negamax (node depth alpha beta player generator objective evaluation game-operator &optional (start-time -1) (time-limit -1))
   "Receives a NODE, a max search DEPTH, value of ALPHA, BETA, current PLAYER, the GENERATOR function for the children, the OBJECTIVE node, an EVALUATION function and the GAME-OPERATOR. 34 - 4."
   (if (or (= depth 0) (funcall objective node) (and (not (= time-limit -1)) (elapsed-sufficient start-time time-limit)))
@@ -86,6 +55,7 @@
         (dolist (child children)
           (let 
             ((score (- (negamax child (- depth 1) (- beta) (- alpha) (- player) generator objective evaluation game-operator start-time time-limit))))
+            (set-nodes-analyzed (+ (get-nodes-analyzed) 1))
             (when (> score max-value) (setf max-value score))
             (when (> score alpha) 
               (setf alpha score)
@@ -104,6 +74,7 @@
 )
 
 (defun elapsed-sufficient (start limit)
+  "Determines if the time LIMIT has been passed according to the START time and current time."
   (let*
     (
       (current (get-internal-real-time))

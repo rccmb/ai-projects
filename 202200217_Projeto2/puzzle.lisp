@@ -126,7 +126,7 @@
 )
 
 (defun change-board (holes-list node initial-line)
-  "Executes changes made to the board where HOLES-LIST are the holes to increment pieces and B the initial board."
+  "Executes changes made to the board where HOLES-LIST are the holes to increment pieces and NODE contains the state of the initial board. INITIAL-LINE denotes the current player."
   (if (null holes-list)
     node
     (let* 
@@ -174,7 +174,7 @@
 )
 
 (defun game-operator (line-index position-index node)
-  "Denotes the play is to be made at line INDEX1 and index INDEX2 of the BOARD."
+  "Denotes the play is to be made at line INDEX1 and index INDEX2 of the board in NODE."
   (if (and (valid-linep line-index) (valid-line-indexp position-index) (not (null node)))
     (let* 
       (
@@ -200,6 +200,39 @@
 )
 
 ;;; Problem Domain Dependent Helper Functions
+
+(defun new-child (node operator index1 index2)
+  "Generates the child of a given NODE according to OPERATOR, called at INDEX1 and INDEX2."
+  (when node
+    (let 
+      ((child (funcall operator index1 index2 node))) ; Calls the operator, which returns a node with the new board and score.
+      (if (not (null child))
+        child
+        nil
+      )
+    )
+  )
+)  
+
+(defun generate-children (node operator current-player)
+  "Generates the children of a given NODE using OPERATOR according to CURRENT-PLAYER."
+  (when 
+    (and (not (null node)))
+    (let 
+      (
+        (children '())
+        (i1 (if (= current-player 1) 1 0))
+      )
+      (loop for i2 from 0 below 6 do ; Board columns.
+        (let 
+          ((child (new-child node operator i1 i2)))
+          (when child (push child children))
+        )
+      )
+      (nreverse children)
+    )
+  )
+)
 
 (defun board-piece-count (board)
   "Returns the total piece count of a given 2x6 BOARD."

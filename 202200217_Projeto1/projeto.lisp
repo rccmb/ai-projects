@@ -1,4 +1,4 @@
-;;;; program.lisp
+;;;; projeto.lisp
 ;;;; Related to user interaction and interface.
 ;;;; Author: Rodrigo Baptista 202200217
 
@@ -7,10 +7,10 @@
 (defparameter *total-pieces* 0 "Total number of pieces in puzzle.")
 
 (defparameter *output-file* (merge-pathnames "log.dat" (make-pathname :directory (pathname-directory *load-pathname*))))
-(defparameter *input-file* (merge-pathnames "problems.dat" (make-pathname :directory (pathname-directory *load-pathname*))))
+(defparameter *input-file* (merge-pathnames "problemas.dat" (make-pathname :directory (pathname-directory *load-pathname*))))
 
-(load (merge-pathnames "game.lisp" (make-pathname :directory (pathname-directory *load-pathname*))))
-(load (merge-pathnames "search.lisp" (make-pathname :directory (pathname-directory *load-pathname*))))
+(load (merge-pathnames "puzzle.lisp" (make-pathname :directory (pathname-directory *load-pathname*))))
+(load (merge-pathnames "procura.lisp" (make-pathname :directory (pathname-directory *load-pathname*))))
 
 (defun initialize ()
   (progn 

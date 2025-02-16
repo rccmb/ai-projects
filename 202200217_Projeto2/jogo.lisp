@@ -12,11 +12,16 @@
 (defparameter *beta-cuts* 0 "Number of beta cuts, current run.")
 (defparameter *alpha-cuts-total* 0 "Number of alpha cuts, total through match.")
 (defparameter *beta-cuts-total* 0 "Number of beta cuts, total through match.")
+(defparameter *nodes-analyzed* 0 "Number of nodes analyzed, current run.")
+(defparameter *nodes-analyzed-total* 0 "Number of nodes analyzed, total through match.")
+
+(defparameter *output-file* (merge-pathnames "log.dat" (make-pathname :directory (pathname-directory *load-pathname*))))
 
 (load (merge-pathnames "algoritmo.lisp" (make-pathname :directory (pathname-directory *load-pathname*))))
 (load (merge-pathnames "puzzle.lisp" (make-pathname :directory (pathname-directory *load-pathname*))))
 
 (defun initialize ()
+  "Initializes the program."
   (progn
     (setq *current-turn* 1)
     (setq *hash-table* (make-hash-table))
@@ -26,6 +31,8 @@
     (setq *beta-cuts* 0)
     (setq *alpha-cuts-total* 0)
     (setq *beta-cuts-total* 0)
+    (setq *nodes-analyzed* 0)
+    (setq *nodes-analyzed-total* 0)
     (let 
       ((mode (read-mode)))
       (cond 
@@ -50,6 +57,7 @@
 )
 
 (defun game (first-player mode &optional (computer-time-limit 0))
+  "Receives a FIRST-PLAYER, the game MODE and a COMPUTER-TIME-LIMIT. Is responsible for the game logic (turns / win condition)."
   (let 
     (
       (current-player first-player)
@@ -135,7 +143,7 @@
 ;;; Reading various forms of input.
 
 (defun read-mode ()
-  "Allows the user to choose the mode."
+  "Allows the user to choose the game mode."
   (progn
     (format t "What mode? ~%")
     (format t "1 - Human VS Computer ~%")
@@ -185,7 +193,7 @@
 )
 
 (defun read-human-move (board current-player)
-  "Allows for the human to make a move."
+  "Allows for the human (CURRENT-PLAYER) to make a move in the BOARD."
   (labels
     (
       (read-hole () 
@@ -213,6 +221,7 @@
 )
 
 (defun read-computer-move (current-player current-node &optional (computer-time-limit -1))
+  "Reads a computer move according to CURRENT-PLAYER and CURRENT-NODE, receives an optional COMPUTER-TIME-LIMIT."
   (progn
     (format t "Computer thinking...~%")
     (let* 
@@ -252,11 +261,14 @@
             (setq *hash-table-miss-rate* (+ *hash-table-miss-rate* 1))
           )
         )
-        (print-cuts)
+        (print-negamax-info)
+        (print-time-elapsed start-time)
         (setq *alpha-cuts-total* (+ *alpha-cuts* *alpha-cuts-total*))
         (setq *alpha-cuts* 0)
         (setq *beta-cuts-total* (+ *beta-cuts* *beta-cuts-total*))
         (setq *beta-cuts* 0)
+        (setq *nodes-analyzed-total* (+ *nodes-analyzed* *nodes-analyzed-total*))
+        (setq *nodes-analyzed* 0)
         best-move
       )
     )
@@ -265,101 +277,203 @@
 
 ;;; Writing to screen and log.dat
 
-(defun print-cant-move (current-player)
-  (if (= current-player 1)
-    (format t "Player 1 can't move! Passing turn...~%")
-    (format t "Player 2 can't move! Passing turn...~%")
+(defun print-time-elapsed (start-time)
+  "Prints the elapsed time between START-TIME and the call of this function."
+  (with-open-file (stream *output-file* :direction :output :if-exists :append :if-does-not-exist :create)
+    (let* 
+      (
+        (end-time (get-internal-real-time))
+        (time-elapsed (- end-time start-time))
+      )
+      (format t "Time taken: ~dms~%" time-elapsed)
+      (format stream "Time taken: ~dms~%" time-elapsed)
+    )
   )
 )
 
-; TODO, also write to log.dat
+(defun print-cant-move (current-player)
+  "Prints that the CURRENT-PLAYER can't move."
+  (with-open-file (stream *output-file* :direction :output :if-exists :append :if-does-not-exist :create)
+    (if (= current-player 1)
+      (progn 
+        (format t "Player 1 can't move! Passing turn...~%")
+        (format stream "Player 1 can't move! Passing turn...~%")
+      )
+      (progn
+        (format t "Player 2 can't move! Passing turn...~%")
+        (format stream "Player 2 can't move! Passing turn...~%")
+      )
+    )
+  )
+)
+
 (defun print-game-turn ()
   "Prints the current game turn."
-  (format t "~%----- TURN ~d -----~%" *current-turn*)
+  (with-open-file (stream *output-file* :direction :output :if-exists :append :if-does-not-exist :create)
+    (format t "~%----- TURN ~d -----~%" *current-turn*)
+    (format stream "~%----- TURN ~d -----~%" *current-turn*)
+  )
 )
 
-; TODO, also write to log.dat
 (defun print-board (board)
   "Prints the current game state (BOARD)."
-  (progn 
+  (with-open-file (stream *output-file* :direction :output :if-exists :append :if-does-not-exist :create)
     (format t "Board:~%")
+    (format stream "Board:~%")
     (format t "2 - ~A~%" (nth 0 board))
+    (format stream "2 - ~A~%" (nth 0 board))
     (format t "1 - ~A~%" (nth 1 board))
+    (format stream "1 - ~A~%" (nth 1 board))
   )
 )
 
-; TODO, also write to log.dat
 (defun print-score (score-p1 score-p2)
-  (progn 
+  "Prints the current game score of player 1, SCORE-P1 and player 2, SCORE-P2."
+  (with-open-file (stream *output-file* :direction :output :if-exists :append :if-does-not-exist :create)
     (format t "Score:~%")
+    (format stream "Score:~%")
     (format t "- Player 1 score is: ~d~%" score-p1)
+    (format stream "- Player 1 score is: ~d~%" score-p1)
     (format t "- Player 2 score is: ~d~%" score-p2)
+    (format stream "- Player 2 score is: ~d~%" score-p2)
     (cond
-      ((< score-p1 score-p2) (format t "Player 1 is losing by ~d points.~%" (- score-p2 score-p1)))
-      ((= score-p1 score-p2) (format t "Player 1 and Player 2 are tied!~%"))
-      ((> score-p1 score-p2) (format t "Player 2 is losing by ~d points.~%" (- score-p1 score-p2)))
+      ((< score-p1 score-p2) 
+        (progn 
+          (format t "Player 1 is losing by ~d points.~%" (- score-p2 score-p1))
+          (format stream "Player 1 is losing by ~d points.~%" (- score-p2 score-p1))
+        )
+      )
+      ((= score-p1 score-p2) 
+        (progn 
+          (format t "Player 1 and Player 2 are tied!~%")
+          (format stream "Player 1 and Player 2 are tied!~%")
+        )
+      )
+      ((> score-p1 score-p2) 
+        (progn 
+          (format t "Player 2 is losing by ~d points.~%" (- score-p1 score-p2))
+          (format stream "Player 2 is losing by ~d points.~%" (- score-p1 score-p2))
+        )
+      )
     )
   )
 )
 
-; TODO, also write to log.dat
 (defun print-move (line position)
-  (progn 
+  "Prints the move that was made, LINE and POSITION."
+  (with-open-file (stream *output-file* :direction :output :if-exists :append :if-does-not-exist :create) 
     (cond 
-      ((= line 0) (format t "Player 2 moved pieces in hole ~d.~%" (+ position 1)))
-      ((= line 1) (format t "Player 1 moved pieces in hole ~d.~%" (+ position 1)))
+      ((= line 0) 
+        (progn
+          (format t "Player 2 moved pieces in hole ~d.~%" (+ position 1))
+          (format stream "Player 2 moved pieces in hole ~d.~%" (+ position 1))
+        )
+      )
+      ((= line 1) 
+        (progn 
+          (format t "Player 1 moved pieces in hole ~d.~%" (+ position 1))
+          (format stream "Player 1 moved pieces in hole ~d.~%" (+ position 1))
+        )
+      )
     )
   )
 )
 
-(defun print-cuts ()
-  (progn
+(defun print-negamax-info ()
+  "Prints the number of alpha and beta cuts made during NegaMax."
+  (with-open-file (stream *output-file* :direction :output :if-exists :append :if-does-not-exist :create) 
     (format t "Number of alpha cuts: ~d~%" *alpha-cuts*)
+    (format stream "Number of alpha cuts: ~d~%" *alpha-cuts*)
     (format t "Number of beta cuts: ~d~%" *beta-cuts*)
+    (format stream "Number of beta cuts: ~d~%" *beta-cuts*)
+    (format t "Number of nodes analyzed: ~d~%" *nodes-analyzed*)
+    (format stream "Number of nodes analyzed: ~d~%" *nodes-analyzed*)
   )
 )
 
-; TODO, also write to log.dat
 (defun print-game-over (game-node computer-time-limit)
+  "Prints game data once game is over. Receives the final state (GAME-NODE) and the COMPUTER-TIME-LIMIT."
   (let 
     (
       (score-p1 (node-score-p1 game-node))
       (score-p2 (node-score-p2 game-node))
       (game-depth (node-depth game-node))
     )
-    (progn 
+    (with-open-file (stream *output-file* :direction :output :if-exists :append :if-does-not-exist :create) 
       (format t "~%----- GAME OVER -----~%")
+      (format stream "~%----- GAME OVER -----~%")
       (format t "No more pieces left to capture!~%")
+      (format stream "No more pieces left to capture!~%")
       (format t "The final score is: ~%")
+      (format stream "The final score is: ~%")
       (format t "- Player 1 score is: ~d~%" score-p1)
+      (format stream "- Player 1 score is: ~d~%" score-p1)
       (format t "- Player 2 score is: ~d~%" score-p2)
+      (format stream "- Player 2 score is: ~d~%" score-p2)
       (cond
-        ((< score-p1 score-p2) (format t "Player 2 WINS!~%Player 1 lost by ~d points.~%" (- score-p2 score-p1)))
-        ((= score-p1 score-p2) (format t "TIE!~%Player 1 and Player 2 tied!~%"))
-        ((> score-p1 score-p2) (format t "Player 1 WINS!~%Player 2 lost by ~d points.~%" (- score-p1 score-p2)))
+        ((< score-p1 score-p2) 
+          (progn 
+            (format t "Player 2 WINS!~%Player 1 lost by ~d points.~%" (- score-p2 score-p1))
+            (format stream "Player 2 WINS!~%Player 1 lost by ~d points.~%" (- score-p2 score-p1))
+          )
+        )
+        ((= score-p1 score-p2) 
+          (progn 
+            (format t "TIE!~%Player 1 and Player 2 tied!~%")
+            (format stream "TIE!~%Player 1 and Player 2 tied!~%")
+          )
+        )
+        ((> score-p1 score-p2) 
+          (progn 
+            (format t "Player 1 WINS!~%Player 2 lost by ~d points.~%" (- score-p1 score-p2))
+            (format stream "Player 1 WINS!~%Player 2 lost by ~d points.~%" (- score-p1 score-p2))
+          )
+        )
       )
       (format t "A total of ~d moves (game depth) were made over ~d turns.~%" game-depth *current-turn*)
+      (format stream "A total of ~d moves (game depth) were made over ~d turns.~%" game-depth *current-turn*)
       (format t "Hash table hit rate: ~d/~d. ~%" *hash-table-hit-rate* *hash-table-miss-rate*)
-      (format t "Total number of alpha cuts: ~d~%" *alpha-cuts-total*)
-      (format t "Total number of beta cuts: ~d~%" *beta-cuts-total*)
+      (format stream "Hash table hit rate: ~d/~d. ~%" *hash-table-hit-rate* *hash-table-miss-rate*)
+      (format t "Total number of alpha cuts: ~d cuts.~%" *alpha-cuts-total*)
+      (format stream "Total number of alpha cuts: ~d cuts.~%" *alpha-cuts-total*)
+      (format t "Total number of beta cuts: ~d cuts.~%" *beta-cuts-total*)
+      (format stream "Total number of beta cuts: ~d cuts.~%" *beta-cuts-total*)
+      (format t "Number of nodes analyzed: ~d nodes.~%" *nodes-analyzed-total*)
+      (format stream "Number of nodes analyzed: ~d nodes.~%" *nodes-analyzed-total*)
       (format t "Seconds per move for the computer: ~d seconds.~%" computer-time-limit)
+      (format stream "Seconds per move for the computer: ~d seconds.~%" computer-time-limit)
       (format t "Maximum search depth for negamax: ~d~%" *search-depth*)
+      (format stream "Maximum search depth for negamax: ~d~%" *search-depth*)
     )
   )
 )
 
 (defun get-alpha-cuts ()
+  "Returns the number of alpha cuts made during a NegaMax run."
   *alpha-cuts*
 )
 
 (defun set-alpha-cuts (value)
+  "Sets the number of alpha cuts made during a NegaMax run."
   (setq *alpha-cuts* value)
 )
 
 (defun get-beta-cuts ()
+  "Returns the number of beta cuts made during a NegaMax run."
   *beta-cuts*
 )
 
 (defun set-beta-cuts (value)
+  "Sets the number of beta cuts made during a NegaMax run."
   (setq *beta-cuts* value)
+)
+
+(defun get-nodes-analyzed ()
+  "Returns the number of analyzed nodes during a NegaMax run."
+  *nodes-analyzed*
+)
+
+(defun set-nodes-analyzed (value)
+  "Sets the number of nodes analyzed."
+  (setq *nodes-analyzed* value)
 )

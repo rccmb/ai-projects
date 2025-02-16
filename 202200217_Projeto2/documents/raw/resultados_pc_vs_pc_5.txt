@@ -1,0 +1,2666 @@
+
+----- TURN 1 -----
+Board:
+2 - (8 8 8 8 8 8)
+1 - (8 8 8 8 8 8)
+Number of alpha cuts: 2510
+Number of beta cuts: 2349
+Number of nodes analyzed: 9260
+Time taken: 5003ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (9 9 9 9 9 9)
+1 - (9 9 8 8 8 0)
+Score:
+- Player 1 score is: 0
+- Player 2 score is: 0
+Player 1 and Player 2 are tied!
+
+----- TURN 2 -----
+Board:
+2 - (9 9 9 9 9 9)
+1 - (9 9 8 8 8 0)
+Number of alpha cuts: 2566
+Number of beta cuts: 2268
+Number of nodes analyzed: 8728
+Time taken: 5009ms
+Player 2 moved pieces in hole 4.
+Board:
+2 - (10 10 10 0 9 9)
+1 - (10 10 9 9 9 0)
+Score:
+- Player 1 score is: 0
+- Player 2 score is: 1
+Player 1 is losing by 1 points.
+
+----- TURN 3 -----
+Board:
+2 - (10 10 10 0 9 9)
+1 - (10 10 9 9 9 0)
+Number of alpha cuts: 2190
+Number of beta cuts: 2052
+Number of nodes analyzed: 6050
+Time taken: 5005ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (11 11 11 1 10 10)
+1 - (11 11 9 9 0 1)
+Score:
+- Player 1 score is: 0
+- Player 2 score is: 1
+Player 1 is losing by 1 points.
+
+----- TURN 4 -----
+Board:
+2 - (11 11 11 1 10 10)
+1 - (11 11 9 9 0 1)
+Number of alpha cuts: 2219
+Number of beta cuts: 2043
+Number of nodes analyzed: 6894
+Time taken: 5005ms
+Player 2 moved pieces in hole 6.
+Board:
+2 - (12 12 12 2 11 0)
+1 - (12 12 10 10 0 1)
+Score:
+- Player 1 score is: 0
+- Player 2 score is: 2
+Player 1 is losing by 2 points.
+
+----- TURN 5 -----
+Board:
+2 - (12 12 12 2 11 0)
+1 - (12 12 10 10 0 1)
+Number of alpha cuts: 2060
+Number of beta cuts: 1833
+Number of nodes analyzed: 8465
+Time taken: 5006ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (12 12 12 2 11 0)
+1 - (12 12 10 10 0 0)
+Score:
+- Player 1 score is: 1
+- Player 2 score is: 2
+Player 1 is losing by 1 points.
+
+----- TURN 6 -----
+Board:
+2 - (12 12 12 2 11 0)
+1 - (12 12 10 10 0 0)
+Number of alpha cuts: 2353
+Number of beta cuts: 2153
+Number of nodes analyzed: 7905
+Time taken: 5004ms
+Player 2 moved pieces in hole 5.
+Board:
+2 - (13 13 13 3 0 1)
+1 - (13 13 11 11 1 1)
+Score:
+- Player 1 score is: 1
+- Player 2 score is: 2
+Player 1 is losing by 1 points.
+
+----- TURN 7 -----
+Board:
+2 - (13 13 13 3 0 1)
+1 - (13 13 11 11 1 1)
+Number of alpha cuts: 2686
+Number of beta cuts: 2418
+Number of nodes analyzed: 7356
+Time taken: 5003ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (13 13 13 3 0 2)
+1 - (13 13 11 11 1 0)
+Score:
+- Player 1 score is: 1
+- Player 2 score is: 2
+Player 1 is losing by 1 points.
+
+----- TURN 8 -----
+Board:
+2 - (13 13 13 3 0 2)
+1 - (13 13 11 11 1 0)
+Number of alpha cuts: 2526
+Number of beta cuts: 2252
+Number of nodes analyzed: 8391
+Time taken: 5005ms
+Player 2 moved pieces in hole 6.
+Board:
+2 - (13 13 13 4 1 0)
+1 - (13 13 11 11 1 0)
+Score:
+- Player 1 score is: 1
+- Player 2 score is: 2
+Player 1 is losing by 1 points.
+
+----- TURN 9 -----
+Board:
+2 - (13 13 13 4 1 0)
+1 - (13 13 11 11 1 0)
+Number of alpha cuts: 2242
+Number of beta cuts: 2076
+Number of nodes analyzed: 7583
+Time taken: 5005ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (13 13 13 4 1 0)
+1 - (13 13 11 11 0 1)
+Score:
+- Player 1 score is: 1
+- Player 2 score is: 2
+Player 1 is losing by 1 points.
+
+----- TURN 10 -----
+Board:
+2 - (13 13 13 4 1 0)
+1 - (13 13 11 11 0 1)
+Number of alpha cuts: 2567
+Number of beta cuts: 2366
+Number of nodes analyzed: 7820
+Time taken: 5004ms
+Player 2 moved pieces in hole 5.
+Board:
+2 - (13 13 13 5 0 0)
+1 - (13 13 11 11 0 1)
+Score:
+- Player 1 score is: 1
+- Player 2 score is: 2
+Player 1 is losing by 1 points.
+
+----- TURN 11 -----
+Board:
+2 - (13 13 13 5 0 0)
+1 - (13 13 11 11 0 1)
+Number of alpha cuts: 2371
+Number of beta cuts: 2093
+Number of nodes analyzed: 7764
+Time taken: 5003ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (13 13 13 5 0 0)
+1 - (13 13 11 11 0 0)
+Score:
+- Player 1 score is: 2
+- Player 2 score is: 2
+Player 1 and Player 2 are tied!
+
+----- TURN 12 -----
+Board:
+2 - (13 13 13 5 0 0)
+1 - (13 13 11 11 0 0)
+Number of alpha cuts: 2732
+Number of beta cuts: 2552
+Number of nodes analyzed: 7887
+Time taken: 5004ms
+Player 2 moved pieces in hole 4.
+Board:
+2 - (14 14 14 0 0 0)
+1 - (14 14 11 11 0 0)
+Score:
+- Player 1 score is: 2
+- Player 2 score is: 2
+Player 1 and Player 2 are tied!
+
+----- TURN 13 -----
+Board:
+2 - (14 14 14 0 0 0)
+1 - (14 14 11 11 0 0)
+Number of alpha cuts: 2409
+Number of beta cuts: 2085
+Number of nodes analyzed: 7322
+Time taken: 5004ms
+Player 1 moved pieces in hole 4.
+Board:
+2 - (15 15 15 1 1 1)
+1 - (15 15 12 0 1 1)
+Score:
+- Player 1 score is: 2
+- Player 2 score is: 2
+Player 1 and Player 2 are tied!
+
+----- TURN 14 -----
+Board:
+2 - (15 15 15 1 1 1)
+1 - (15 15 12 0 1 1)
+Number of alpha cuts: 2687
+Number of beta cuts: 2424
+Number of nodes analyzed: 8147
+Time taken: 5004ms
+Player 2 moved pieces in hole 6.
+Board:
+2 - (15 15 15 1 2 0)
+1 - (15 15 12 0 1 1)
+Score:
+- Player 1 score is: 2
+- Player 2 score is: 2
+Player 1 and Player 2 are tied!
+
+----- TURN 15 -----
+Board:
+2 - (15 15 15 1 2 0)
+1 - (15 15 12 0 1 1)
+Number of alpha cuts: 2492
+Number of beta cuts: 2363
+Number of nodes analyzed: 7983
+Time taken: 5003ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (15 15 15 1 2 0)
+1 - (15 15 12 0 1 0)
+Score:
+- Player 1 score is: 3
+- Player 2 score is: 2
+Player 2 is losing by 1 points.
+
+----- TURN 16 -----
+Board:
+2 - (15 15 15 1 2 0)
+1 - (15 15 12 0 1 0)
+Number of alpha cuts: 2609
+Number of beta cuts: 2409
+Number of nodes analyzed: 8198
+Time taken: 5004ms
+Player 2 moved pieces in hole 5.
+Board:
+2 - (15 15 16 2 0 0)
+1 - (15 15 12 0 1 0)
+Score:
+- Player 1 score is: 3
+- Player 2 score is: 2
+Player 2 is losing by 1 points.
+
+----- TURN 17 -----
+Board:
+2 - (15 15 16 2 0 0)
+1 - (15 15 12 0 1 0)
+Number of alpha cuts: 2639
+Number of beta cuts: 2454
+Number of nodes analyzed: 8678
+Time taken: 5004ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (15 15 16 2 0 0)
+1 - (15 15 12 0 0 1)
+Score:
+- Player 1 score is: 3
+- Player 2 score is: 2
+Player 2 is losing by 1 points.
+
+----- TURN 18 -----
+Board:
+2 - (15 15 16 2 0 0)
+1 - (15 15 12 0 0 1)
+Number of alpha cuts: 2535
+Number of beta cuts: 2257
+Number of nodes analyzed: 8339
+Time taken: 5003ms
+Player 2 moved pieces in hole 4.
+Board:
+2 - (15 16 17 0 0 0)
+1 - (15 15 12 0 0 1)
+Score:
+- Player 1 score is: 3
+- Player 2 score is: 2
+Player 2 is losing by 1 points.
+
+----- TURN 19 -----
+Board:
+2 - (15 16 17 0 0 0)
+1 - (15 15 12 0 0 1)
+Number of alpha cuts: 2465
+Number of beta cuts: 2222
+Number of nodes analyzed: 8179
+Time taken: 5003ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (15 16 17 0 0 0)
+1 - (15 15 12 0 0 0)
+Score:
+- Player 1 score is: 4
+- Player 2 score is: 2
+Player 2 is losing by 2 points.
+
+----- TURN 20 -----
+Board:
+2 - (15 16 17 0 0 0)
+1 - (15 15 12 0 0 0)
+Number of alpha cuts: 2932
+Number of beta cuts: 2648
+Number of nodes analyzed: 8959
+Time taken: 5003ms
+Player 2 moved pieces in hole 3.
+Board:
+2 - (17 18 0 1 1 1)
+1 - (17 17 14 2 1 1)
+Score:
+- Player 1 score is: 4
+- Player 2 score is: 2
+Player 2 is losing by 2 points.
+
+----- TURN 21 -----
+Board:
+2 - (17 18 0 1 1 1)
+1 - (17 17 14 2 1 1)
+Number of alpha cuts: 2658
+Number of beta cuts: 2464
+Number of nodes analyzed: 7989
+Time taken: 5003ms
+Player 1 moved pieces in hole 2.
+Board:
+2 - (18 19 1 2 0 3)
+1 - (18 0 16 4 3 3)
+Score:
+- Player 1 score is: 7
+- Player 2 score is: 2
+Player 2 is losing by 5 points.
+
+----- TURN 22 -----
+Board:
+2 - (18 19 1 2 0 3)
+1 - (18 0 16 4 3 3)
+Number of alpha cuts: 2599
+Number of beta cuts: 2341
+Number of nodes analyzed: 9676
+Time taken: 5003ms
+Player 2 moved pieces in hole 6.
+Board:
+2 - (18 19 2 3 1 0)
+1 - (18 0 16 4 3 3)
+Score:
+- Player 1 score is: 7
+- Player 2 score is: 2
+Player 2 is losing by 5 points.
+
+----- TURN 23 -----
+Board:
+2 - (18 19 2 3 1 0)
+1 - (18 0 16 4 3 3)
+Number of alpha cuts: 2828
+Number of beta cuts: 2642
+Number of nodes analyzed: 8314
+Time taken: 5005ms
+Player 1 moved pieces in hole 3.
+Board:
+2 - (19 20 3 4 0 2)
+1 - (19 1 0 6 5 5)
+Score:
+- Player 1 score is: 10
+- Player 2 score is: 2
+Player 2 is losing by 8 points.
+
+----- TURN 24 -----
+Board:
+2 - (19 20 3 4 0 2)
+1 - (19 1 0 6 5 5)
+Number of alpha cuts: 2467
+Number of beta cuts: 2188
+Number of nodes analyzed: 8397
+Time taken: 5002ms
+Player 2 moved pieces in hole 6.
+Board:
+2 - (19 20 3 5 1 0)
+1 - (19 1 0 6 5 5)
+Score:
+- Player 1 score is: 10
+- Player 2 score is: 2
+Player 2 is losing by 8 points.
+
+----- TURN 25 -----
+Board:
+2 - (19 20 3 5 1 0)
+1 - (19 1 0 6 5 5)
+Number of alpha cuts: 2620
+Number of beta cuts: 2272
+Number of nodes analyzed: 7563
+Time taken: 5004ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (19 21 4 6 2 1)
+1 - (19 1 0 6 5 0)
+Score:
+- Player 1 score is: 10
+- Player 2 score is: 2
+Player 2 is losing by 8 points.
+
+----- TURN 26 -----
+Board:
+2 - (19 21 4 6 2 1)
+1 - (19 1 0 6 5 0)
+Number of alpha cuts: 2425
+Number of beta cuts: 2277
+Number of nodes analyzed: 7121
+Time taken: 5004ms
+Player 2 moved pieces in hole 4.
+Board:
+2 - (20 22 5 0 2 1)
+1 - (20 2 0 6 5 0)
+Score:
+- Player 1 score is: 10
+- Player 2 score is: 3
+Player 2 is losing by 7 points.
+
+----- TURN 27 -----
+Board:
+2 - (20 22 5 0 2 1)
+1 - (20 2 0 6 5 0)
+Number of alpha cuts: 2054
+Number of beta cuts: 1975
+Number of nodes analyzed: 6869
+Time taken: 5002ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (20 22 6 1 3 2)
+1 - (20 2 0 6 0 1)
+Score:
+- Player 1 score is: 10
+- Player 2 score is: 3
+Player 2 is losing by 7 points.
+
+----- TURN 28 -----
+Board:
+2 - (20 22 6 1 3 2)
+1 - (20 2 0 6 0 1)
+Number of alpha cuts: 2939
+Number of beta cuts: 2668
+Number of nodes analyzed: 8540
+Time taken: 5004ms
+Player 2 moved pieces in hole 6.
+Board:
+2 - (20 22 6 2 4 0)
+1 - (20 2 0 6 0 1)
+Score:
+- Player 1 score is: 10
+- Player 2 score is: 3
+Player 2 is losing by 7 points.
+
+----- TURN 29 -----
+Board:
+2 - (20 22 6 2 4 0)
+1 - (20 2 0 6 0 1)
+Number of alpha cuts: 2544
+Number of beta cuts: 2435
+Number of nodes analyzed: 8896
+Time taken: 5004ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (20 22 6 2 4 0)
+1 - (20 2 0 6 0 0)
+Score:
+- Player 1 score is: 11
+- Player 2 score is: 3
+Player 2 is losing by 8 points.
+
+----- TURN 30 -----
+Board:
+2 - (20 22 6 2 4 0)
+1 - (20 2 0 6 0 0)
+Number of alpha cuts: 2666
+Number of beta cuts: 2524
+Number of nodes analyzed: 8058
+Time taken: 5009ms
+Player 2 moved pieces in hole 5.
+Board:
+2 - (21 23 7 3 0 0)
+1 - (20 2 0 6 0 0)
+Score:
+- Player 1 score is: 11
+- Player 2 score is: 3
+Player 2 is losing by 8 points.
+
+----- TURN 31 -----
+Board:
+2 - (21 23 7 3 0 0)
+1 - (20 2 0 6 0 0)
+Number of alpha cuts: 2047
+Number of beta cuts: 1862
+Number of nodes analyzed: 7304
+Time taken: 5003ms
+Player 1 moved pieces in hole 4.
+Board:
+2 - (21 23 8 4 1 1)
+1 - (20 2 0 0 1 1)
+Score:
+- Player 1 score is: 11
+- Player 2 score is: 3
+Player 2 is losing by 8 points.
+
+----- TURN 32 -----
+Board:
+2 - (21 23 8 4 1 1)
+1 - (20 2 0 0 1 1)
+Number of alpha cuts: 2283
+Number of beta cuts: 2153
+Number of nodes analyzed: 6835
+Time taken: 5003ms
+Player 2 moved pieces in hole 6.
+Board:
+2 - (21 23 8 4 2 0)
+1 - (20 2 0 0 1 1)
+Score:
+- Player 1 score is: 11
+- Player 2 score is: 3
+Player 2 is losing by 8 points.
+
+----- TURN 33 -----
+Board:
+2 - (21 23 8 4 2 0)
+1 - (20 2 0 0 1 1)
+Number of alpha cuts: 2581
+Number of beta cuts: 2387
+Number of nodes analyzed: 8651
+Time taken: 5003ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (21 23 8 4 2 0)
+1 - (20 2 0 0 1 0)
+Score:
+- Player 1 score is: 12
+- Player 2 score is: 3
+Player 2 is losing by 9 points.
+
+----- TURN 34 -----
+Board:
+2 - (21 23 8 4 2 0)
+1 - (20 2 0 0 1 0)
+Number of alpha cuts: 3178
+Number of beta cuts: 2881
+Number of nodes analyzed: 8983
+Time taken: 5004ms
+Player 2 moved pieces in hole 3.
+Board:
+2 - (22 24 0 4 2 0)
+1 - (21 3 1 1 2 0)
+Score:
+- Player 1 score is: 12
+- Player 2 score is: 4
+Player 2 is losing by 8 points.
+
+----- TURN 35 -----
+Board:
+2 - (22 24 0 4 2 0)
+1 - (21 3 1 1 2 0)
+Number of alpha cuts: 2809
+Number of beta cuts: 2613
+Number of nodes analyzed: 9359
+Time taken: 5002ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (22 24 0 4 2 0)
+1 - (21 3 1 1 0 1)
+Score:
+- Player 1 score is: 13
+- Player 2 score is: 4
+Player 2 is losing by 9 points.
+
+----- TURN 36 -----
+Board:
+2 - (22 24 0 4 2 0)
+1 - (21 3 1 1 0 1)
+Number of alpha cuts: 3015
+Number of beta cuts: 2617
+Number of nodes analyzed: 9644
+Time taken: 5003ms
+Player 2 moved pieces in hole 5.
+Board:
+2 - (22 24 1 5 0 0)
+1 - (21 3 1 1 0 1)
+Score:
+- Player 1 score is: 13
+- Player 2 score is: 4
+Player 2 is losing by 9 points.
+
+----- TURN 37 -----
+Board:
+2 - (22 24 1 5 0 0)
+1 - (21 3 1 1 0 1)
+Number of alpha cuts: 2874
+Number of beta cuts: 2677
+Number of nodes analyzed: 9254
+Time taken: 5002ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (22 24 1 5 0 0)
+1 - (21 3 1 1 0 0)
+Score:
+- Player 1 score is: 14
+- Player 2 score is: 4
+Player 2 is losing by 10 points.
+
+----- TURN 38 -----
+Board:
+2 - (22 24 1 5 0 0)
+1 - (21 3 1 1 0 0)
+Number of alpha cuts: 3139
+Number of beta cuts: 2760
+Number of nodes analyzed: 9936
+Time taken: 5003ms
+Player 2 moved pieces in hole 4.
+Board:
+2 - (23 25 2 0 0 0)
+1 - (22 4 1 1 0 0)
+Score:
+- Player 1 score is: 14
+- Player 2 score is: 4
+Player 2 is losing by 10 points.
+
+----- TURN 39 -----
+Board:
+2 - (23 25 2 0 0 0)
+1 - (22 4 1 1 0 0)
+Number of alpha cuts: 2520
+Number of beta cuts: 2174
+Number of nodes analyzed: 8010
+Time taken: 5002ms
+Player 1 moved pieces in hole 4.
+Board:
+2 - (23 25 2 0 0 0)
+1 - (22 4 1 0 1 0)
+Score:
+- Player 1 score is: 14
+- Player 2 score is: 4
+Player 2 is losing by 10 points.
+
+----- TURN 40 -----
+Board:
+2 - (23 25 2 0 0 0)
+1 - (22 4 1 0 1 0)
+Number of alpha cuts: 3203
+Number of beta cuts: 2867
+Number of nodes analyzed: 9401
+Time taken: 5003ms
+Player 2 moved pieces in hole 3.
+Board:
+2 - (24 26 0 0 0 0)
+1 - (22 4 1 0 1 0)
+Score:
+- Player 1 score is: 14
+- Player 2 score is: 4
+Player 2 is losing by 10 points.
+
+----- TURN 41 -----
+Board:
+2 - (24 26 0 0 0 0)
+1 - (22 4 1 0 1 0)
+Number of alpha cuts: 2910
+Number of beta cuts: 2604
+Number of nodes analyzed: 9667
+Time taken: 5004ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (24 26 0 0 0 0)
+1 - (22 4 1 0 0 1)
+Score:
+- Player 1 score is: 14
+- Player 2 score is: 4
+Player 2 is losing by 10 points.
+
+----- TURN 42 -----
+Board:
+2 - (24 26 0 0 0 0)
+1 - (22 4 1 0 0 1)
+Number of alpha cuts: 3162
+Number of beta cuts: 2859
+Number of nodes analyzed: 9604
+Time taken: 5004ms
+Player 2 moved pieces in hole 2.
+Board:
+2 - (27 0 2 2 2 2)
+1 - (25 7 4 2 2 3)
+Score:
+- Player 1 score is: 14
+- Player 2 score is: 4
+Player 2 is losing by 10 points.
+
+----- TURN 43 -----
+Board:
+2 - (27 0 2 2 2 2)
+1 - (25 7 4 2 2 3)
+Number of alpha cuts: 2568
+Number of beta cuts: 2290
+Number of nodes analyzed: 7285
+Time taken: 5004ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (27 0 2 0 3 3)
+1 - (25 7 4 2 2 0)
+Score:
+- Player 1 score is: 17
+- Player 2 score is: 4
+Player 2 is losing by 13 points.
+
+----- TURN 44 -----
+Board:
+2 - (27 0 2 0 3 3)
+1 - (25 7 4 2 2 0)
+Number of alpha cuts: 2896
+Number of beta cuts: 2540
+Number of nodes analyzed: 10067
+Time taken: 5002ms
+Player 2 moved pieces in hole 6.
+Board:
+2 - (27 0 3 1 4 0)
+1 - (25 7 4 2 2 0)
+Score:
+- Player 1 score is: 17
+- Player 2 score is: 4
+Player 2 is losing by 13 points.
+
+----- TURN 45 -----
+Board:
+2 - (27 0 3 1 4 0)
+1 - (25 7 4 2 2 0)
+Number of alpha cuts: 2926
+Number of beta cuts: 2716
+Number of nodes analyzed: 8698
+Time taken: 5004ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (27 0 3 1 4 0)
+1 - (25 7 4 2 0 1)
+Score:
+- Player 1 score is: 18
+- Player 2 score is: 4
+Player 2 is losing by 14 points.
+
+----- TURN 46 -----
+Board:
+2 - (27 0 3 1 4 0)
+1 - (25 7 4 2 0 1)
+Number of alpha cuts: 3113
+Number of beta cuts: 2672
+Number of nodes analyzed: 10638
+Time taken: 5004ms
+Player 2 moved pieces in hole 5.
+Board:
+2 - (28 1 4 2 0 0)
+1 - (25 7 4 2 0 1)
+Score:
+- Player 1 score is: 18
+- Player 2 score is: 4
+Player 2 is losing by 14 points.
+
+----- TURN 47 -----
+Board:
+2 - (28 1 4 2 0 0)
+1 - (25 7 4 2 0 1)
+Number of alpha cuts: 2803
+Number of beta cuts: 2526
+Number of nodes analyzed: 9787
+Time taken: 5003ms
+Player 1 moved pieces in hole 2.
+Board:
+2 - (28 1 4 0 1 1)
+1 - (25 0 5 3 1 2)
+Score:
+- Player 1 score is: 21
+- Player 2 score is: 4
+Player 2 is losing by 17 points.
+
+----- TURN 48 -----
+Board:
+2 - (28 1 4 0 1 1)
+1 - (25 0 5 3 1 2)
+Number of alpha cuts: 3782
+Number of beta cuts: 3418
+Number of nodes analyzed: 11592
+Time taken: 5004ms
+Player 2 moved pieces in hole 3.
+Board:
+2 - (29 2 0 0 1 1)
+1 - (26 0 5 3 1 2)
+Score:
+- Player 1 score is: 21
+- Player 2 score is: 5
+Player 2 is losing by 16 points.
+
+----- TURN 49 -----
+Board:
+2 - (29 2 0 0 1 1)
+1 - (26 0 5 3 1 2)
+Number of alpha cuts: 2949
+Number of beta cuts: 2738
+Number of nodes analyzed: 8715
+Time taken: 5003ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (29 2 0 0 2 2)
+1 - (26 0 5 3 1 0)
+Score:
+- Player 1 score is: 21
+- Player 2 score is: 5
+Player 2 is losing by 16 points.
+
+----- TURN 50 -----
+Board:
+2 - (29 2 0 0 2 2)
+1 - (26 0 5 3 1 0)
+Number of alpha cuts: 3240
+Number of beta cuts: 3000
+Number of nodes analyzed: 10535
+Time taken: 5003ms
+Player 2 moved pieces in hole 6.
+Board:
+2 - (29 2 0 1 3 0)
+1 - (26 0 5 3 1 0)
+Score:
+- Player 1 score is: 21
+- Player 2 score is: 5
+Player 2 is losing by 16 points.
+
+----- TURN 51 -----
+Board:
+2 - (29 2 0 1 3 0)
+1 - (26 0 5 3 1 0)
+Number of alpha cuts: 2891
+Number of beta cuts: 2661
+Number of nodes analyzed: 9891
+Time taken: 5002ms
+Player 1 moved pieces in hole 4.
+Board:
+2 - (29 2 0 1 3 0)
+1 - (26 0 5 0 2 1)
+Score:
+- Player 1 score is: 22
+- Player 2 score is: 5
+Player 2 is losing by 17 points.
+
+----- TURN 52 -----
+Board:
+2 - (29 2 0 1 3 0)
+1 - (26 0 5 0 2 1)
+Number of alpha cuts: 3377
+Number of beta cuts: 3031
+Number of nodes analyzed: 11183
+Time taken: 5003ms
+Player 2 moved pieces in hole 5.
+Board:
+2 - (29 3 1 2 0 0)
+1 - (26 0 5 0 2 1)
+Score:
+- Player 1 score is: 22
+- Player 2 score is: 5
+Player 2 is losing by 17 points.
+
+----- TURN 53 -----
+Board:
+2 - (29 3 1 2 0 0)
+1 - (26 0 5 0 2 1)
+Number of alpha cuts: 2534
+Number of beta cuts: 2365
+Number of nodes analyzed: 9088
+Time taken: 5002ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (29 3 1 2 0 0)
+1 - (26 0 5 0 2 0)
+Score:
+- Player 1 score is: 23
+- Player 2 score is: 5
+Player 2 is losing by 18 points.
+
+----- TURN 54 -----
+Board:
+2 - (29 3 1 2 0 0)
+1 - (26 0 5 0 2 0)
+Number of alpha cuts: 3518
+Number of beta cuts: 3135
+Number of nodes analyzed: 11592
+Time taken: 5004ms
+Player 2 moved pieces in hole 2.
+Board:
+2 - (30 0 1 2 0 0)
+1 - (27 0 5 0 2 0)
+Score:
+- Player 1 score is: 23
+- Player 2 score is: 6
+Player 2 is losing by 17 points.
+
+----- TURN 55 -----
+Board:
+2 - (30 0 1 2 0 0)
+1 - (27 0 5 0 2 0)
+Number of alpha cuts: 3273
+Number of beta cuts: 3071
+Number of nodes analyzed: 11406
+Time taken: 5002ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (30 0 1 2 0 0)
+1 - (27 0 5 0 0 1)
+Score:
+- Player 1 score is: 24
+- Player 2 score is: 6
+Player 2 is losing by 18 points.
+
+----- TURN 56 -----
+Board:
+2 - (30 0 1 2 0 0)
+1 - (27 0 5 0 0 1)
+Number of alpha cuts: 3575
+Number of beta cuts: 3271
+Number of nodes analyzed: 10368
+Time taken: 5003ms
+Player 2 moved pieces in hole 4.
+Board:
+2 - (30 1 2 0 0 0)
+1 - (27 0 5 0 0 1)
+Score:
+- Player 1 score is: 24
+- Player 2 score is: 6
+Player 2 is losing by 18 points.
+
+----- TURN 57 -----
+Board:
+2 - (30 1 2 0 0 0)
+1 - (27 0 5 0 0 1)
+Number of alpha cuts: 2837
+Number of beta cuts: 2595
+Number of nodes analyzed: 9366
+Time taken: 5006ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (30 1 2 0 0 0)
+1 - (27 0 5 0 0 0)
+Score:
+- Player 1 score is: 25
+- Player 2 score is: 6
+Player 2 is losing by 19 points.
+
+----- TURN 58 -----
+Board:
+2 - (30 1 2 0 0 0)
+1 - (27 0 5 0 0 0)
+Number of alpha cuts: 3450
+Number of beta cuts: 3155
+Number of nodes analyzed: 10369
+Time taken: 5003ms
+Player 2 moved pieces in hole 3.
+Board:
+2 - (31 2 0 0 0 0)
+1 - (27 0 5 0 0 0)
+Score:
+- Player 1 score is: 25
+- Player 2 score is: 6
+Player 2 is losing by 19 points.
+
+----- TURN 59 -----
+Board:
+2 - (31 2 0 0 0 0)
+1 - (27 0 5 0 0 0)
+Number of alpha cuts: 3061
+Number of beta cuts: 2861
+Number of nodes analyzed: 10497
+Time taken: 5002ms
+Player 1 moved pieces in hole 3.
+Board:
+2 - (31 2 0 0 0 1)
+1 - (27 0 0 1 1 1)
+Score:
+- Player 1 score is: 26
+- Player 2 score is: 6
+Player 2 is losing by 20 points.
+
+----- TURN 60 -----
+Board:
+2 - (31 2 0 0 0 1)
+1 - (27 0 0 1 1 1)
+Number of alpha cuts: 3972
+Number of beta cuts: 3643
+Number of nodes analyzed: 10690
+Time taken: 5004ms
+Player 2 moved pieces in hole 6.
+Board:
+2 - (31 2 0 0 1 0)
+1 - (27 0 0 1 1 1)
+Score:
+- Player 1 score is: 26
+- Player 2 score is: 6
+Player 2 is losing by 20 points.
+
+----- TURN 61 -----
+Board:
+2 - (31 2 0 0 1 0)
+1 - (27 0 0 1 1 1)
+Number of alpha cuts: 3098
+Number of beta cuts: 2826
+Number of nodes analyzed: 10738
+Time taken: 5003ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (31 2 0 0 1 0)
+1 - (27 0 0 1 1 0)
+Score:
+- Player 1 score is: 27
+- Player 2 score is: 6
+Player 2 is losing by 21 points.
+
+----- TURN 62 -----
+Board:
+2 - (31 2 0 0 1 0)
+1 - (27 0 0 1 1 0)
+Number of alpha cuts: 4210
+Number of beta cuts: 3754
+Number of nodes analyzed: 11970
+Time taken: 5002ms
+Player 2 moved pieces in hole 5.
+Board:
+2 - (31 2 0 1 0 0)
+1 - (27 0 0 1 1 0)
+Score:
+- Player 1 score is: 27
+- Player 2 score is: 6
+Player 2 is losing by 21 points.
+
+----- TURN 63 -----
+Board:
+2 - (31 2 0 1 0 0)
+1 - (27 0 0 1 1 0)
+Number of alpha cuts: 3107
+Number of beta cuts: 2860
+Number of nodes analyzed: 9454
+Time taken: 5003ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (31 2 0 1 0 0)
+1 - (27 0 0 1 0 1)
+Score:
+- Player 1 score is: 27
+- Player 2 score is: 6
+Player 2 is losing by 21 points.
+
+----- TURN 64 -----
+Board:
+2 - (31 2 0 1 0 0)
+1 - (27 0 0 1 0 1)
+Number of alpha cuts: 2961
+Number of beta cuts: 2637
+Number of nodes analyzed: 8857
+Time taken: 5002ms
+Player 2 moved pieces in hole 4.
+Board:
+2 - (31 2 1 0 0 0)
+1 - (27 0 0 1 0 1)
+Score:
+- Player 1 score is: 27
+- Player 2 score is: 6
+Player 2 is losing by 21 points.
+
+----- TURN 65 -----
+Board:
+2 - (31 2 1 0 0 0)
+1 - (27 0 0 1 0 1)
+Number of alpha cuts: 3276
+Number of beta cuts: 2926
+Number of nodes analyzed: 11635
+Time taken: 5003ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (31 2 1 0 0 0)
+1 - (27 0 0 1 0 0)
+Score:
+- Player 1 score is: 28
+- Player 2 score is: 6
+Player 2 is losing by 22 points.
+
+----- TURN 66 -----
+Board:
+2 - (31 2 1 0 0 0)
+1 - (27 0 0 1 0 0)
+Number of alpha cuts: 3367
+Number of beta cuts: 3144
+Number of nodes analyzed: 9878
+Time taken: 5002ms
+Player 2 moved pieces in hole 3.
+Board:
+2 - (31 3 0 0 0 0)
+1 - (27 0 0 1 0 0)
+Score:
+- Player 1 score is: 28
+- Player 2 score is: 6
+Player 2 is losing by 22 points.
+
+----- TURN 67 -----
+Board:
+2 - (31 3 0 0 0 0)
+1 - (27 0 0 1 0 0)
+Number of alpha cuts: 3945
+Number of beta cuts: 3791
+Number of nodes analyzed: 10823
+Time taken: 5002ms
+Player 1 moved pieces in hole 4.
+Board:
+2 - (31 3 0 0 0 0)
+1 - (27 0 0 0 1 0)
+Score:
+- Player 1 score is: 28
+- Player 2 score is: 6
+Player 2 is losing by 22 points.
+
+----- TURN 68 -----
+Board:
+2 - (31 3 0 0 0 0)
+1 - (27 0 0 0 1 0)
+Number of alpha cuts: 3250
+Number of beta cuts: 3072
+Number of nodes analyzed: 10242
+Time taken: 5002ms
+Player 2 moved pieces in hole 2.
+Board:
+2 - (32 0 0 0 0 0)
+1 - (28 0 0 0 1 0)
+Score:
+- Player 1 score is: 28
+- Player 2 score is: 7
+Player 2 is losing by 21 points.
+
+----- TURN 69 -----
+Board:
+2 - (32 0 0 0 0 0)
+1 - (28 0 0 0 1 0)
+Number of alpha cuts: 3513
+Number of beta cuts: 3180
+Number of nodes analyzed: 11999
+Time taken: 5002ms
+Player 1 moved pieces in hole 1.
+Board:
+2 - (34 2 2 2 2 0)
+1 - (0 3 3 3 4 3)
+Score:
+- Player 1 score is: 31
+- Player 2 score is: 7
+Player 2 is losing by 24 points.
+
+----- TURN 70 -----
+Board:
+2 - (34 2 2 2 2 0)
+1 - (0 3 3 3 4 3)
+Number of alpha cuts: 3568
+Number of beta cuts: 3158
+Number of nodes analyzed: 11944
+Time taken: 5003ms
+Player 2 moved pieces in hole 2.
+Board:
+2 - (35 0 2 2 2 0)
+1 - (0 3 3 3 4 3)
+Score:
+- Player 1 score is: 31
+- Player 2 score is: 8
+Player 2 is losing by 23 points.
+
+----- TURN 71 -----
+Board:
+2 - (35 0 2 2 2 0)
+1 - (0 3 3 3 4 3)
+Number of alpha cuts: 2984
+Number of beta cuts: 2809
+Number of nodes analyzed: 10494
+Time taken: 5004ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (35 0 2 0 3 1)
+1 - (0 3 3 3 4 0)
+Score:
+- Player 1 score is: 34
+- Player 2 score is: 8
+Player 2 is losing by 26 points.
+
+----- TURN 72 -----
+Board:
+2 - (35 0 2 0 3 1)
+1 - (0 3 3 3 4 0)
+Number of alpha cuts: 3526
+Number of beta cuts: 3241
+Number of nodes analyzed: 12532
+Time taken: 5002ms
+Player 2 moved pieces in hole 6.
+Board:
+2 - (35 0 2 0 4 0)
+1 - (0 3 3 3 4 0)
+Score:
+- Player 1 score is: 34
+- Player 2 score is: 8
+Player 2 is losing by 26 points.
+
+----- TURN 73 -----
+Board:
+2 - (35 0 2 0 4 0)
+1 - (0 3 3 3 4 0)
+Number of alpha cuts: 3372
+Number of beta cuts: 3180
+Number of nodes analyzed: 10791
+Time taken: 5003ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (35 0 2 0 5 1)
+1 - (0 3 3 3 0 1)
+Score:
+- Player 1 score is: 35
+- Player 2 score is: 8
+Player 2 is losing by 27 points.
+
+----- TURN 74 -----
+Board:
+2 - (35 0 2 0 5 1)
+1 - (0 3 3 3 0 1)
+Number of alpha cuts: 3418
+Number of beta cuts: 3192
+Number of nodes analyzed: 10489
+Time taken: 5003ms
+Player 2 moved pieces in hole 5.
+Board:
+2 - (36 1 3 1 0 1)
+1 - (0 3 3 3 0 1)
+Score:
+- Player 1 score is: 35
+- Player 2 score is: 9
+Player 2 is losing by 26 points.
+
+----- TURN 75 -----
+Board:
+2 - (36 1 3 1 0 1)
+1 - (0 3 3 3 0 1)
+Number of alpha cuts: 3780
+Number of beta cuts: 3465
+Number of nodes analyzed: 11226
+Time taken: 5003ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (36 1 3 1 0 2)
+1 - (0 3 3 3 0 0)
+Score:
+- Player 1 score is: 35
+- Player 2 score is: 9
+Player 2 is losing by 26 points.
+
+----- TURN 76 -----
+Board:
+2 - (36 1 3 1 0 2)
+1 - (0 3 3 3 0 0)
+Number of alpha cuts: 4623
+Number of beta cuts: 4423
+Number of nodes analyzed: 13969
+Time taken: 5002ms
+Player 2 moved pieces in hole 3.
+Board:
+2 - (37 2 0 1 0 2)
+1 - (0 3 3 3 0 0)
+Score:
+- Player 1 score is: 35
+- Player 2 score is: 10
+Player 2 is losing by 25 points.
+
+----- TURN 77 -----
+Board:
+2 - (37 2 0 1 0 2)
+1 - (0 3 3 3 0 0)
+Number of alpha cuts: 4604
+Number of beta cuts: 4286
+Number of nodes analyzed: 13311
+Time taken: 5003ms
+Player 1 moved pieces in hole 4.
+Board:
+2 - (37 2 0 1 0 0)
+1 - (0 3 3 0 1 1)
+Score:
+- Player 1 score is: 38
+- Player 2 score is: 10
+Player 2 is losing by 28 points.
+
+----- TURN 78 -----
+Board:
+2 - (37 2 0 1 0 0)
+1 - (0 3 3 0 1 1)
+Number of alpha cuts: 4276
+Number of beta cuts: 3940
+Number of nodes analyzed: 13977
+Time taken: 5003ms
+Player 2 moved pieces in hole 2.
+Board:
+2 - (38 0 0 1 0 0)
+1 - (0 3 3 0 1 1)
+Score:
+- Player 1 score is: 38
+- Player 2 score is: 11
+Player 2 is losing by 27 points.
+
+----- TURN 79 -----
+Board:
+2 - (38 0 0 1 0 0)
+1 - (0 3 3 0 1 1)
+Number of alpha cuts: 4334
+Number of beta cuts: 4010
+Number of nodes analyzed: 13841
+Time taken: 5002ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (38 0 0 1 0 0)
+1 - (0 3 3 0 1 0)
+Score:
+- Player 1 score is: 39
+- Player 2 score is: 11
+Player 2 is losing by 28 points.
+
+----- TURN 80 -----
+Board:
+2 - (38 0 0 1 0 0)
+1 - (0 3 3 0 1 0)
+Number of alpha cuts: 5340
+Number of beta cuts: 4990
+Number of nodes analyzed: 16251
+Time taken: 5002ms
+Player 2 moved pieces in hole 4.
+Board:
+2 - (38 0 1 0 0 0)
+1 - (0 3 3 0 1 0)
+Score:
+- Player 1 score is: 39
+- Player 2 score is: 11
+Player 2 is losing by 28 points.
+
+----- TURN 81 -----
+Board:
+2 - (38 0 1 0 0 0)
+1 - (0 3 3 0 1 0)
+Number of alpha cuts: 4349
+Number of beta cuts: 3982
+Number of nodes analyzed: 13490
+Time taken: 5002ms
+Player 1 moved pieces in hole 2.
+Board:
+2 - (38 0 1 0 0 0)
+1 - (0 0 4 1 2 0)
+Score:
+- Player 1 score is: 39
+- Player 2 score is: 11
+Player 2 is losing by 28 points.
+
+----- TURN 82 -----
+Board:
+2 - (38 0 1 0 0 0)
+1 - (0 0 4 1 2 0)
+Number of alpha cuts: 4497
+Number of beta cuts: 4200
+Number of nodes analyzed: 13126
+Time taken: 5002ms
+Player 2 moved pieces in hole 3.
+Board:
+2 - (38 1 0 0 0 0)
+1 - (0 0 4 1 2 0)
+Score:
+- Player 1 score is: 39
+- Player 2 score is: 11
+Player 2 is losing by 28 points.
+
+----- TURN 83 -----
+Board:
+2 - (38 1 0 0 0 0)
+1 - (0 0 4 1 2 0)
+Number of alpha cuts: 4865
+Number of beta cuts: 4433
+Number of nodes analyzed: 14136
+Time taken: 5002ms
+Player 1 moved pieces in hole 3.
+Board:
+2 - (38 1 0 0 0 0)
+1 - (0 0 0 2 3 1)
+Score:
+- Player 1 score is: 40
+- Player 2 score is: 11
+Player 2 is losing by 29 points.
+
+----- TURN 84 -----
+Board:
+2 - (38 1 0 0 0 0)
+1 - (0 0 0 2 3 1)
+Number of alpha cuts: 4261
+Number of beta cuts: 3909
+Number of nodes analyzed: 13627
+Time taken: 5002ms
+Player 2 moved pieces in hole 2.
+Board:
+2 - (39 0 0 0 0 0)
+1 - (0 0 0 2 3 1)
+Score:
+- Player 1 score is: 40
+- Player 2 score is: 11
+Player 2 is losing by 29 points.
+
+----- TURN 85 -----
+Board:
+2 - (39 0 0 0 0 0)
+1 - (0 0 0 2 3 1)
+Number of alpha cuts: 4536
+Number of beta cuts: 4009
+Number of nodes analyzed: 14514
+Time taken: 5002ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (39 0 0 0 0 0)
+1 - (0 0 0 2 3 0)
+Score:
+- Player 1 score is: 41
+- Player 2 score is: 11
+Player 2 is losing by 30 points.
+
+----- TURN 86 -----
+Board:
+2 - (39 0 0 0 0 0)
+1 - (0 0 0 2 3 0)
+Number of alpha cuts: 4922
+Number of beta cuts: 4463
+Number of nodes analyzed: 15501
+Time taken: 5002ms
+Player 2 moved pieces in hole 1.
+Board:
+2 - (0 3 3 3 3 3)
+1 - (4 4 4 6 7 4)
+Score:
+- Player 1 score is: 41
+- Player 2 score is: 11
+Player 2 is losing by 30 points.
+
+----- TURN 87 -----
+Board:
+2 - (0 3 3 3 3 3)
+1 - (4 4 4 6 7 4)
+Number of alpha cuts: 4669
+Number of beta cuts: 4251
+Number of nodes analyzed: 13869
+Time taken: 5003ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (0 4 4 4 4 4)
+1 - (4 4 4 6 0 5)
+Score:
+- Player 1 score is: 42
+- Player 2 score is: 11
+Player 2 is losing by 31 points.
+
+----- TURN 88 -----
+Board:
+2 - (0 4 4 4 4 4)
+1 - (4 4 4 6 0 5)
+Number of alpha cuts: 5591
+Number of beta cuts: 5165
+Number of nodes analyzed: 16146
+Time taken: 5002ms
+Player 2 moved pieces in hole 4.
+Board:
+2 - (1 5 5 0 4 4)
+1 - (0 4 4 6 0 5)
+Score:
+- Player 1 score is: 42
+- Player 2 score is: 16
+Player 2 is losing by 26 points.
+
+----- TURN 89 -----
+Board:
+2 - (1 5 5 0 4 4)
+1 - (0 4 4 6 0 5)
+Number of alpha cuts: 5583
+Number of beta cuts: 5168
+Number of nodes analyzed: 14316
+Time taken: 5002ms
+Player 1 moved pieces in hole 3.
+Board:
+2 - (1 5 5 0 4 0)
+1 - (0 4 0 7 1 6)
+Score:
+- Player 1 score is: 47
+- Player 2 score is: 16
+Player 2 is losing by 31 points.
+
+----- TURN 90 -----
+Board:
+2 - (1 5 5 0 4 0)
+1 - (0 4 0 7 1 6)
+Number of alpha cuts: 6354
+Number of beta cuts: 5617
+Number of nodes analyzed: 17552
+Time taken: 5003ms
+Player 2 moved pieces in hole 3.
+Board:
+2 - (2 6 0 0 4 0)
+1 - (1 5 0 7 1 6)
+Score:
+- Player 1 score is: 47
+- Player 2 score is: 17
+Player 2 is losing by 30 points.
+
+----- TURN 91 -----
+Board:
+2 - (2 6 0 0 4 0)
+1 - (1 5 0 7 1 6)
+Number of alpha cuts: 5632
+Number of beta cuts: 5240
+Number of nodes analyzed: 16792
+Time taken: 5003ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (0 7 1 1 5 1)
+1 - (1 5 0 7 1 0)
+Score:
+- Player 1 score is: 50
+- Player 2 score is: 17
+Player 2 is losing by 33 points.
+
+----- TURN 92 -----
+Board:
+2 - (0 7 1 1 5 1)
+1 - (1 5 0 7 1 0)
+Number of alpha cuts: 6647
+Number of beta cuts: 5875
+Number of nodes analyzed: 18441
+Time taken: 5002ms
+Player 2 moved pieces in hole 2.
+Board:
+2 - (1 0 1 1 5 1)
+1 - (2 6 1 8 2 0)
+Score:
+- Player 1 score is: 50
+- Player 2 score is: 18
+Player 2 is losing by 32 points.
+
+----- TURN 93 -----
+Board:
+2 - (1 0 1 1 5 1)
+1 - (2 6 1 8 2 0)
+Number of alpha cuts: 6681
+Number of beta cuts: 6159
+Number of nodes analyzed: 17029
+Time taken: 5003ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (1 0 1 1 5 2)
+1 - (2 6 1 8 0 1)
+Score:
+- Player 1 score is: 50
+- Player 2 score is: 18
+Player 2 is losing by 32 points.
+
+----- TURN 94 -----
+Board:
+2 - (1 0 1 1 5 2)
+1 - (2 6 1 8 0 1)
+Number of alpha cuts: 4876
+Number of beta cuts: 4395
+Number of nodes analyzed: 15058
+Time taken: 5003ms
+Player 2 moved pieces in hole 5.
+Board:
+2 - (2 1 2 2 0 2)
+1 - (0 6 1 8 0 1)
+Score:
+- Player 1 score is: 50
+- Player 2 score is: 21
+Player 2 is losing by 29 points.
+
+----- TURN 95 -----
+Board:
+2 - (2 1 2 2 0 2)
+1 - (0 6 1 8 0 1)
+Number of alpha cuts: 6589
+Number of beta cuts: 5967
+Number of nodes analyzed: 16314
+Time taken: 5002ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (2 1 2 2 0 0)
+1 - (0 6 1 8 0 0)
+Score:
+- Player 1 score is: 53
+- Player 2 score is: 21
+Player 2 is losing by 32 points.
+
+----- TURN 96 -----
+Board:
+2 - (2 1 2 2 0 0)
+1 - (0 6 1 8 0 0)
+Number of alpha cuts: 7591
+Number of beta cuts: 6831
+Number of nodes analyzed: 20384
+Time taken: 5002ms
+Player 2 moved pieces in hole 2.
+Board:
+2 - (3 0 2 2 0 0)
+1 - (0 6 1 8 0 0)
+Score:
+- Player 1 score is: 53
+- Player 2 score is: 21
+Player 2 is losing by 32 points.
+
+----- TURN 97 -----
+Board:
+2 - (3 0 2 2 0 0)
+1 - (0 6 1 8 0 0)
+Number of alpha cuts: 7133
+Number of beta cuts: 6562
+Number of nodes analyzed: 18782
+Time taken: 5002ms
+Player 1 moved pieces in hole 3.
+Board:
+2 - (3 0 2 2 0 0)
+1 - (0 6 0 9 0 0)
+Score:
+- Player 1 score is: 53
+- Player 2 score is: 21
+Player 2 is losing by 32 points.
+
+----- TURN 98 -----
+Board:
+2 - (3 0 2 2 0 0)
+1 - (0 6 0 9 0 0)
+Number of alpha cuts: 6263
+Number of beta cuts: 5679
+Number of nodes analyzed: 15707
+Time taken: 3745ms
+Player 2 moved pieces in hole 4.
+Board:
+2 - (3 1 3 0 0 0)
+1 - (0 6 0 9 0 0)
+Score:
+- Player 1 score is: 53
+- Player 2 score is: 21
+Player 2 is losing by 32 points.
+
+----- TURN 99 -----
+Board:
+2 - (3 1 3 0 0 0)
+1 - (0 6 0 9 0 0)
+Number of alpha cuts: 6633
+Number of beta cuts: 6027
+Number of nodes analyzed: 17175
+Time taken: 4422ms
+Player 1 moved pieces in hole 2.
+Board:
+2 - (3 1 3 0 0 1)
+1 - (0 0 1 10 1 1)
+Score:
+- Player 1 score is: 54
+- Player 2 score is: 21
+Player 2 is losing by 33 points.
+
+----- TURN 100 -----
+Board:
+2 - (3 1 3 0 0 1)
+1 - (0 0 1 10 1 1)
+Number of alpha cuts: 8166
+Number of beta cuts: 7600
+Number of nodes analyzed: 20254
+Time taken: 5002ms
+Player 2 moved pieces in hole 3.
+Board:
+2 - (4 2 0 0 0 1)
+1 - (0 0 1 10 1 1)
+Score:
+- Player 1 score is: 54
+- Player 2 score is: 22
+Player 2 is losing by 32 points.
+
+----- TURN 101 -----
+Board:
+2 - (4 2 0 0 0 1)
+1 - (0 0 1 10 1 1)
+Number of alpha cuts: 8224
+Number of beta cuts: 7467
+Number of nodes analyzed: 21979
+Time taken: 5002ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (4 2 0 0 0 1)
+1 - (0 0 1 10 0 2)
+Score:
+- Player 1 score is: 54
+- Player 2 score is: 22
+Player 2 is losing by 32 points.
+
+----- TURN 102 -----
+Board:
+2 - (4 2 0 0 0 1)
+1 - (0 0 1 10 0 2)
+Number of alpha cuts: 8238
+Number of beta cuts: 7796
+Number of nodes analyzed: 20867
+Time taken: 5002ms
+Player 2 moved pieces in hole 2.
+Board:
+2 - (5 0 0 0 0 1)
+1 - (0 0 1 10 0 2)
+Score:
+- Player 1 score is: 54
+- Player 2 score is: 23
+Player 2 is losing by 31 points.
+
+----- TURN 103 -----
+Board:
+2 - (5 0 0 0 0 1)
+1 - (0 0 1 10 0 2)
+Number of alpha cuts: 7588
+Number of beta cuts: 7155
+Number of nodes analyzed: 22038
+Time taken: 5002ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (5 0 0 0 0 2)
+1 - (0 0 1 10 0 0)
+Score:
+- Player 1 score is: 55
+- Player 2 score is: 23
+Player 2 is losing by 32 points.
+
+----- TURN 104 -----
+Board:
+2 - (5 0 0 0 0 2)
+1 - (0 0 1 10 0 0)
+Number of alpha cuts: 6976
+Number of beta cuts: 6569
+Number of nodes analyzed: 18401
+Time taken: 4264ms
+Player 2 moved pieces in hole 6.
+Board:
+2 - (5 0 0 1 1 0)
+1 - (0 0 1 10 0 0)
+Score:
+- Player 1 score is: 55
+- Player 2 score is: 23
+Player 2 is losing by 32 points.
+
+----- TURN 105 -----
+Board:
+2 - (5 0 0 1 1 0)
+1 - (0 0 1 10 0 0)
+Number of alpha cuts: 6586
+Number of beta cuts: 5947
+Number of nodes analyzed: 17626
+Time taken: 5002ms
+Player 1 moved pieces in hole 4.
+Board:
+2 - (6 1 1 2 2 1)
+1 - (1 1 1 0 1 1)
+Score:
+- Player 1 score is: 55
+- Player 2 score is: 23
+Player 2 is losing by 32 points.
+
+----- TURN 106 -----
+Board:
+2 - (6 1 1 2 2 1)
+1 - (1 1 1 0 1 1)
+Number of alpha cuts: 6106
+Number of beta cuts: 5449
+Number of nodes analyzed: 13658
+Time taken: 5003ms
+Player 2 moved pieces in hole 6.
+Board:
+2 - (6 1 1 2 3 0)
+1 - (1 1 1 0 1 1)
+Score:
+- Player 1 score is: 55
+- Player 2 score is: 23
+Player 2 is losing by 32 points.
+
+----- TURN 107 -----
+Board:
+2 - (6 1 1 2 3 0)
+1 - (1 1 1 0 1 1)
+Number of alpha cuts: 7917
+Number of beta cuts: 6782
+Number of nodes analyzed: 22660
+Time taken: 5002ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (6 1 1 2 3 0)
+1 - (1 1 1 0 1 0)
+Score:
+- Player 1 score is: 56
+- Player 2 score is: 23
+Player 2 is losing by 33 points.
+
+----- TURN 108 -----
+Board:
+2 - (6 1 1 2 3 0)
+1 - (1 1 1 0 1 0)
+Number of alpha cuts: 9217
+Number of beta cuts: 8146
+Number of nodes analyzed: 22554
+Time taken: 5003ms
+Player 2 moved pieces in hole 1.
+Board:
+2 - (0 1 1 2 3 0)
+1 - (2 2 2 1 2 0)
+Score:
+- Player 1 score is: 56
+- Player 2 score is: 24
+Player 2 is losing by 32 points.
+
+----- TURN 109 -----
+Board:
+2 - (0 1 1 2 3 0)
+1 - (2 2 2 1 2 0)
+Number of alpha cuts: 9790
+Number of beta cuts: 8372
+Number of nodes analyzed: 23190
+Time taken: 4745ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (0 1 1 2 3 0)
+1 - (2 2 2 1 0 1)
+Score:
+- Player 1 score is: 57
+- Player 2 score is: 24
+Player 2 is losing by 33 points.
+
+----- TURN 110 -----
+Board:
+2 - (0 1 1 2 3 0)
+1 - (2 2 2 1 0 1)
+Number of alpha cuts: 4715
+Number of beta cuts: 4342
+Number of nodes analyzed: 10874
+Time taken: 2641ms
+Player 2 moved pieces in hole 5.
+Board:
+2 - (0 2 2 3 0 0)
+1 - (2 2 2 1 0 1)
+Score:
+- Player 1 score is: 57
+- Player 2 score is: 24
+Player 2 is losing by 33 points.
+
+----- TURN 111 -----
+Board:
+2 - (0 2 2 3 0 0)
+1 - (2 2 2 1 0 1)
+Number of alpha cuts: 2177
+Number of beta cuts: 1842
+Number of nodes analyzed: 5789
+Time taken: 1080ms
+Player 1 moved pieces in hole 1.
+Board:
+2 - (0 2 2 3 0 0)
+1 - (0 3 3 1 0 1)
+Score:
+- Player 1 score is: 57
+- Player 2 score is: 24
+Player 2 is losing by 33 points.
+
+----- TURN 112 -----
+Board:
+2 - (0 2 2 3 0 0)
+1 - (0 3 3 1 0 1)
+Number of alpha cuts: 3503
+Number of beta cuts: 3329
+Number of nodes analyzed: 7169
+Time taken: 1546ms
+Player 2 moved pieces in hole 2.
+Board:
+2 - (1 0 2 3 0 0)
+1 - (0 3 3 1 0 1)
+Score:
+- Player 1 score is: 57
+- Player 2 score is: 25
+Player 2 is losing by 32 points.
+
+----- TURN 113 -----
+Board:
+2 - (1 0 2 3 0 0)
+1 - (0 3 3 1 0 1)
+Number of alpha cuts: 2868
+Number of beta cuts: 2541
+Number of nodes analyzed: 7032
+Time taken: 1497ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (1 0 2 3 0 0)
+1 - (0 3 3 1 0 0)
+Score:
+- Player 1 score is: 58
+- Player 2 score is: 25
+Player 2 is losing by 33 points.
+
+----- TURN 114 -----
+Board:
+2 - (1 0 2 3 0 0)
+1 - (0 3 3 1 0 0)
+Number of alpha cuts: 3470
+Number of beta cuts: 3276
+Number of nodes analyzed: 7265
+Time taken: 1518ms
+Player 2 moved pieces in hole 1.
+Board:
+2 - (0 0 2 3 0 0)
+1 - (0 3 3 1 0 0)
+Score:
+- Player 1 score is: 58
+- Player 2 score is: 26
+Player 2 is losing by 32 points.
+
+----- TURN 115 -----
+Board:
+2 - (0 0 2 3 0 0)
+1 - (0 3 3 1 0 0)
+Number of alpha cuts: 1556
+Number of beta cuts: 1332
+Number of nodes analyzed: 4078
+Time taken: 754ms
+Player 1 moved pieces in hole 2.
+Board:
+2 - (0 0 2 3 0 0)
+1 - (0 0 4 2 1 0)
+Score:
+- Player 1 score is: 58
+- Player 2 score is: 26
+Player 2 is losing by 32 points.
+
+----- TURN 116 -----
+Board:
+2 - (0 0 2 3 0 0)
+1 - (0 0 4 2 1 0)
+Number of alpha cuts: 634
+Number of beta cuts: 550
+Number of nodes analyzed: 1693
+Time taken: 294ms
+Player 2 moved pieces in hole 4.
+Board:
+2 - (1 1 3 0 0 0)
+1 - (0 0 4 2 1 0)
+Score:
+- Player 1 score is: 58
+- Player 2 score is: 26
+Player 2 is losing by 32 points.
+
+----- TURN 117 -----
+Board:
+2 - (1 1 3 0 0 0)
+1 - (0 0 4 2 1 0)
+Number of alpha cuts: 914
+Number of beta cuts: 788
+Number of nodes analyzed: 1821
+Time taken: 345ms
+Player 1 moved pieces in hole 3.
+Board:
+2 - (1 1 3 0 0 0)
+1 - (0 0 0 3 2 1)
+Score:
+- Player 1 score is: 59
+- Player 2 score is: 26
+Player 2 is losing by 33 points.
+
+----- TURN 118 -----
+Board:
+2 - (1 1 3 0 0 0)
+1 - (0 0 0 3 2 1)
+Number of alpha cuts: 839
+Number of beta cuts: 673
+Number of nodes analyzed: 1966
+Time taken: 333ms
+Player 2 moved pieces in hole 2.
+Board:
+2 - (2 0 3 0 0 0)
+1 - (0 0 0 3 2 1)
+Score:
+- Player 1 score is: 59
+- Player 2 score is: 26
+Player 2 is losing by 33 points.
+
+----- TURN 119 -----
+Board:
+2 - (2 0 3 0 0 0)
+1 - (0 0 0 3 2 1)
+Number of alpha cuts: 714
+Number of beta cuts: 586
+Number of nodes analyzed: 1676
+Time taken: 258ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (2 0 3 0 0 0)
+1 - (0 0 0 3 2 0)
+Score:
+- Player 1 score is: 60
+- Player 2 score is: 26
+Player 2 is losing by 34 points.
+
+----- TURN 120 -----
+Board:
+2 - (2 0 3 0 0 0)
+1 - (0 0 0 3 2 0)
+Number of alpha cuts: 309
+Number of beta cuts: 224
+Number of nodes analyzed: 594
+Time taken: 164ms
+Player 2 moved pieces in hole 3.
+Board:
+2 - (3 1 0 0 0 0)
+1 - (0 0 0 3 2 0)
+Score:
+- Player 1 score is: 60
+- Player 2 score is: 27
+Player 2 is losing by 33 points.
+
+----- TURN 121 -----
+Board:
+2 - (3 1 0 0 0 0)
+1 - (0 0 0 3 2 0)
+Number of alpha cuts: 326
+Number of beta cuts: 246
+Number of nodes analyzed: 902
+Time taken: 138ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (3 1 0 0 0 0)
+1 - (0 0 0 3 0 1)
+Score:
+- Player 1 score is: 61
+- Player 2 score is: 27
+Player 2 is losing by 34 points.
+
+----- TURN 122 -----
+Board:
+2 - (3 1 0 0 0 0)
+1 - (0 0 0 3 0 1)
+Number of alpha cuts: 173
+Number of beta cuts: 135
+Number of nodes analyzed: 315
+Time taken: 59ms
+Player 2 moved pieces in hole 2.
+Board:
+2 - (4 0 0 0 0 0)
+1 - (0 0 0 3 0 1)
+Score:
+- Player 1 score is: 61
+- Player 2 score is: 27
+Player 2 is losing by 34 points.
+
+----- TURN 123 -----
+Board:
+2 - (4 0 0 0 0 0)
+1 - (0 0 0 3 0 1)
+Number of alpha cuts: 185
+Number of beta cuts: 157
+Number of nodes analyzed: 712
+Time taken: 103ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (4 0 0 0 0 0)
+1 - (0 0 0 3 0 0)
+Score:
+- Player 1 score is: 62
+- Player 2 score is: 27
+Player 2 is losing by 35 points.
+
+----- TURN 124 -----
+Board:
+2 - (4 0 0 0 0 0)
+1 - (0 0 0 3 0 0)
+Number of alpha cuts: 355
+Number of beta cuts: 341
+Number of nodes analyzed: 695
+Time taken: 123ms
+Player 2 moved pieces in hole 1.
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 1 1 4 0 0)
+Score:
+- Player 1 score is: 62
+- Player 2 score is: 27
+Player 2 is losing by 35 points.
+
+----- TURN 125 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 1 1 4 0 0)
+Number of alpha cuts: 356
+Number of beta cuts: 339
+Number of nodes analyzed: 1394
+Time taken: 173ms
+Player 1 moved pieces in hole 3.
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 1 0 5 0 0)
+Score:
+- Player 1 score is: 62
+- Player 2 score is: 27
+Player 2 is losing by 35 points.
+
+----- TURN 126 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 1 0 5 0 0)
+Player 2 can't move! Passing turn...
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 1 0 5 0 0)
+Score:
+- Player 1 score is: 62
+- Player 2 score is: 27
+Player 2 is losing by 35 points.
+
+----- TURN 127 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 1 0 5 0 0)
+Number of alpha cuts: 282
+Number of beta cuts: 202
+Number of nodes analyzed: 788
+Time taken: 157ms
+Player 1 moved pieces in hole 2.
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 0 1 5 0 0)
+Score:
+- Player 1 score is: 62
+- Player 2 score is: 27
+Player 2 is losing by 35 points.
+
+----- TURN 128 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 0 1 5 0 0)
+Player 2 can't move! Passing turn...
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 0 1 5 0 0)
+Score:
+- Player 1 score is: 62
+- Player 2 score is: 27
+Player 2 is losing by 35 points.
+
+----- TURN 129 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 0 1 5 0 0)
+Number of alpha cuts: 359
+Number of beta cuts: 272
+Number of nodes analyzed: 1008
+Time taken: 167ms
+Player 1 moved pieces in hole 3.
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 0 0 6 0 0)
+Score:
+- Player 1 score is: 62
+- Player 2 score is: 27
+Player 2 is losing by 35 points.
+
+----- TURN 130 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 0 0 6 0 0)
+Player 2 can't move! Passing turn...
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 0 0 6 0 0)
+Score:
+- Player 1 score is: 62
+- Player 2 score is: 27
+Player 2 is losing by 35 points.
+
+----- TURN 131 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 0 0 6 0 0)
+Number of alpha cuts: 333
+Number of beta cuts: 271
+Number of nodes analyzed: 682
+Time taken: 193ms
+Player 1 moved pieces in hole 1.
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 1 0 6 0 0)
+Score:
+- Player 1 score is: 62
+- Player 2 score is: 27
+Player 2 is losing by 35 points.
+
+----- TURN 132 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 1 0 6 0 0)
+Player 2 can't move! Passing turn...
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 1 0 6 0 0)
+Score:
+- Player 1 score is: 62
+- Player 2 score is: 27
+Player 2 is losing by 35 points.
+
+----- TURN 133 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 1 0 6 0 0)
+Number of alpha cuts: 272
+Number of beta cuts: 228
+Number of nodes analyzed: 542
+Time taken: 97ms
+Player 1 moved pieces in hole 2.
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 1 6 0 0)
+Score:
+- Player 1 score is: 62
+- Player 2 score is: 27
+Player 2 is losing by 35 points.
+
+----- TURN 134 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 1 6 0 0)
+Player 2 can't move! Passing turn...
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 1 6 0 0)
+Score:
+- Player 1 score is: 62
+- Player 2 score is: 27
+Player 2 is losing by 35 points.
+
+----- TURN 135 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 1 6 0 0)
+Number of alpha cuts: 269
+Number of beta cuts: 233
+Number of nodes analyzed: 528
+Time taken: 106ms
+Player 1 moved pieces in hole 3.
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 7 0 0)
+Score:
+- Player 1 score is: 62
+- Player 2 score is: 27
+Player 2 is losing by 35 points.
+
+----- TURN 136 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 7 0 0)
+Player 2 can't move! Passing turn...
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 7 0 0)
+Score:
+- Player 1 score is: 62
+- Player 2 score is: 27
+Player 2 is losing by 35 points.
+
+----- TURN 137 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 7 0 0)
+Number of alpha cuts: 6
+Number of beta cuts: 6
+Number of nodes analyzed: 11
+Time taken: 11ms
+Player 1 moved pieces in hole 4.
+Board:
+2 - (0 0 1 1 1 1)
+1 - (0 0 0 0 1 1)
+Score:
+- Player 1 score is: 63
+- Player 2 score is: 27
+Player 2 is losing by 36 points.
+
+----- TURN 138 -----
+Board:
+2 - (0 0 1 1 1 1)
+1 - (0 0 0 0 1 1)
+Number of alpha cuts: 20
+Number of beta cuts: 20
+Number of nodes analyzed: 40
+Time taken: 23ms
+Player 2 moved pieces in hole 6.
+Board:
+2 - (0 0 1 1 2 0)
+1 - (0 0 0 0 1 1)
+Score:
+- Player 1 score is: 63
+- Player 2 score is: 27
+Player 2 is losing by 36 points.
+
+----- TURN 139 -----
+Board:
+2 - (0 0 1 1 2 0)
+1 - (0 0 0 0 1 1)
+Number of alpha cuts: 5
+Number of beta cuts: 5
+Number of nodes analyzed: 8
+Time taken: 7ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (0 0 1 1 2 0)
+1 - (0 0 0 0 1 0)
+Score:
+- Player 1 score is: 64
+- Player 2 score is: 27
+Player 2 is losing by 37 points.
+
+----- TURN 140 -----
+Board:
+2 - (0 0 1 1 2 0)
+1 - (0 0 0 0 1 0)
+Number of alpha cuts: 6
+Number of beta cuts: 6
+Number of nodes analyzed: 12
+Time taken: 7ms
+Player 2 moved pieces in hole 5.
+Board:
+2 - (0 0 2 2 0 0)
+1 - (0 0 0 0 1 0)
+Score:
+- Player 1 score is: 64
+- Player 2 score is: 27
+Player 2 is losing by 37 points.
+
+----- TURN 141 -----
+Board:
+2 - (0 0 2 2 0 0)
+1 - (0 0 0 0 1 0)
+Number of alpha cuts: 2
+Number of beta cuts: 2
+Number of nodes analyzed: 3
+Time taken: 1ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (0 0 2 2 0 0)
+1 - (0 0 0 0 0 1)
+Score:
+- Player 1 score is: 64
+- Player 2 score is: 27
+Player 2 is losing by 37 points.
+
+----- TURN 142 -----
+Board:
+2 - (0 0 2 2 0 0)
+1 - (0 0 0 0 0 1)
+Number of alpha cuts: 2
+Number of beta cuts: 2
+Number of nodes analyzed: 4
+Time taken: 2ms
+Player 2 moved pieces in hole 4.
+Board:
+2 - (0 1 3 0 0 0)
+1 - (0 0 0 0 0 1)
+Score:
+- Player 1 score is: 64
+- Player 2 score is: 27
+Player 2 is losing by 37 points.
+
+----- TURN 143 -----
+Board:
+2 - (0 1 3 0 0 0)
+1 - (0 0 0 0 0 1)
+Number of alpha cuts: 1
+Number of beta cuts: 1
+Number of nodes analyzed: 1
+Time taken: 0ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (0 1 3 0 0 0)
+1 - (0 0 0 0 0 0)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 27
+Player 2 is losing by 38 points.
+
+----- TURN 144 -----
+Board:
+2 - (0 1 3 0 0 0)
+1 - (0 0 0 0 0 0)
+Number of alpha cuts: 0
+Number of beta cuts: 0
+Number of nodes analyzed: 0
+Time taken: 1ms
+Player 2 moved pieces in hole 3.
+Board:
+2 - (1 2 0 0 0 0)
+1 - (0 0 0 0 0 0)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 28
+Player 2 is losing by 37 points.
+
+----- TURN 145 -----
+Board:
+2 - (1 2 0 0 0 0)
+1 - (0 0 0 0 0 0)
+Player 1 can't move! Passing turn...
+Board:
+2 - (1 2 0 0 0 0)
+1 - (0 0 0 0 0 0)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 28
+Player 2 is losing by 37 points.
+
+----- TURN 146 -----
+Board:
+2 - (1 2 0 0 0 0)
+1 - (0 0 0 0 0 0)
+Number of alpha cuts: 0
+Number of beta cuts: 0
+Number of nodes analyzed: 0
+Time taken: 1ms
+Player 2 moved pieces in hole 2.
+Board:
+2 - (2 0 0 0 0 0)
+1 - (0 0 0 0 0 0)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 29
+Player 2 is losing by 36 points.
+
+----- TURN 147 -----
+Board:
+2 - (2 0 0 0 0 0)
+1 - (0 0 0 0 0 0)
+Player 1 can't move! Passing turn...
+Board:
+2 - (2 0 0 0 0 0)
+1 - (0 0 0 0 0 0)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 29
+Player 2 is losing by 36 points.
+
+----- TURN 148 -----
+Board:
+2 - (2 0 0 0 0 0)
+1 - (0 0 0 0 0 0)
+Number of alpha cuts: 1
+Number of beta cuts: 1
+Number of nodes analyzed: 1
+Time taken: 1ms
+Player 2 moved pieces in hole 1.
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 0 0 0 0 0)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 30
+Player 2 is losing by 35 points.
+
+----- TURN 149 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (1 0 0 0 0 0)
+Number of alpha cuts: 0
+Number of beta cuts: 0
+Number of nodes analyzed: 0
+Time taken: 0ms
+Player 1 moved pieces in hole 1.
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 1 0 0 0 0)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 30
+Player 2 is losing by 35 points.
+
+----- TURN 150 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 1 0 0 0 0)
+Player 2 can't move! Passing turn...
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 1 0 0 0 0)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 30
+Player 2 is losing by 35 points.
+
+----- TURN 151 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 1 0 0 0 0)
+Number of alpha cuts: 0
+Number of beta cuts: 0
+Number of nodes analyzed: 0
+Time taken: 1ms
+Player 1 moved pieces in hole 2.
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 1 0 0 0)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 30
+Player 2 is losing by 35 points.
+
+----- TURN 152 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 1 0 0 0)
+Player 2 can't move! Passing turn...
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 1 0 0 0)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 30
+Player 2 is losing by 35 points.
+
+----- TURN 153 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 1 0 0 0)
+Number of alpha cuts: 0
+Number of beta cuts: 0
+Number of nodes analyzed: 0
+Time taken: 1ms
+Player 1 moved pieces in hole 3.
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 1 0 0)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 30
+Player 2 is losing by 35 points.
+
+----- TURN 154 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 1 0 0)
+Player 2 can't move! Passing turn...
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 1 0 0)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 30
+Player 2 is losing by 35 points.
+
+----- TURN 155 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 1 0 0)
+Number of alpha cuts: 0
+Number of beta cuts: 0
+Number of nodes analyzed: 0
+Time taken: 1ms
+Player 1 moved pieces in hole 4.
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 0 1 0)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 30
+Player 2 is losing by 35 points.
+
+----- TURN 156 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 0 1 0)
+Player 2 can't move! Passing turn...
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 0 1 0)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 30
+Player 2 is losing by 35 points.
+
+----- TURN 157 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 0 1 0)
+Number of alpha cuts: 0
+Number of beta cuts: 0
+Number of nodes analyzed: 0
+Time taken: 0ms
+Player 1 moved pieces in hole 5.
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 0 0 1)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 30
+Player 2 is losing by 35 points.
+
+----- TURN 158 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 0 0 1)
+Player 2 can't move! Passing turn...
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 0 0 1)
+Score:
+- Player 1 score is: 65
+- Player 2 score is: 30
+Player 2 is losing by 35 points.
+
+----- TURN 159 -----
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 0 0 1)
+Number of alpha cuts: 0
+Number of beta cuts: 0
+Number of nodes analyzed: 0
+Time taken: 2ms
+Player 1 moved pieces in hole 6.
+Board:
+2 - (0 0 0 0 0 0)
+1 - (0 0 0 0 0 0)
+Score:
+- Player 1 score is: 66
+- Player 2 score is: 30
+Player 2 is losing by 36 points.
+
+----- GAME OVER -----
+No more pieces left to capture!
+The final score is: 
+- Player 1 score is: 66
+- Player 2 score is: 30
+Player 1 WINS!
+Player 2 lost by 36 points.
+A total of 146 moves (game depth) were made over 160 turns.
+Hash table hit rate: 0/146. 
+Total number of alpha cuts: 451760 cuts.
+Total number of beta cuts: 411294 cuts.
+Number of nodes analyzed: 1326956 nodes.
+Seconds per move for the computer: 5 seconds.
+Maximum search depth for negamax: 10
