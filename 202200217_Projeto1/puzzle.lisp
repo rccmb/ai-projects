@@ -1,4 +1,4 @@
-;;;; game.lisp
+;;;; puzzle.lisp
 ;;;; Related to the domain of the game, operators, heuristics.
 ;;;; Author: Rodrigo Baptista 202200217
 
@@ -171,7 +171,7 @@
     ((null nodes) nil)  ; If the list of nodes is empty, return false.
     ((eq algorithm 'bfs) (some (lambda (x) (compare-state node x)) nodes)) ; Exists if states match.
     ((eq algorithm 'dfs) (some (lambda (x) (and (compare-state node x) (compare-depth x node))) nodes))  ; Match state & depth.
-    ((eq algorithm 'a-star) (some (lambda (x) (and (compare-state node x) (compare-cost x node))) nodes))  ; Match state & cost.
+    ((or (eq algorithm 'a-star) (eq algorithm 'sma-star)) (some (lambda (x) (and (compare-state node x) (compare-cost x node))) nodes))  ; Match state & cost.
     (t nil)
   )
 )
@@ -218,7 +218,7 @@
         (create-node 
           state ; Current problem state.
           (+ (node-depth node) 1) ; Depth.
-          (if (eq algorithm 'a-star) ; A* is informed.
+          (if (or (eq algorithm 'a-star) (eq algorithm 'sma-star)) ; A* and SMA* are informed.
             (funcall heuristic state) 
             0
           ) 
@@ -271,8 +271,7 @@
 )
 
 (defun game-heuristic-advanced (board)
-  "Heuristic based on total pieces left and their spread.
-   Fewer pieces and clustered formations lead to a lower heuristic value."
+  "Heuristic based on total pieces left and their spread. Fewer pieces and clustered formations lead to a lower heuristic value."
   (let* ((total-pieces (board-piece-count board))
          (empty-spaces (count-empty-spaces board))
          (piece-spread (piece-spread-factor board)))

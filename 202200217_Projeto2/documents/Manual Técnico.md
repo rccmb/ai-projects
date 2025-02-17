@@ -17,6 +17,12 @@ O código divide-se em três ficheiros separados, com as respetivas responsabili
 ## 3. Algoritmo Implementado e Funções Auxiliares
 O algoritmo implementado foi o Negamax com cortes alfa-beta.  
 ### 3.1 Algoritmo
+1. Verificamos os casos base da recursividade, que é a profundidade limite de procura (no caso desta implementação, é uma constante definida como 10), se o nó atual é um nó terminal, ou seja, é um nó objetivo (no contexto do problema, o nó terminal é um nó cujo estado é o tabuleiro vazio), se o tempo limite de procura foi atingido (um valor, em segundos, entre 1 e 20, inclusive).
+2. Inicializamos o valor máximo e geramos os descendentes (sucessores), que são posteriormente ordenados de forma descrescente tendo em conta a sua avaliação.
+3. Para cada descendente (sucessor), computamos valor Negamax de forma recursiva, ou seja, para cada criança voltamos a repetir estes passos.
+4. São gerados cortes beta caso o valor de alfa seja superior ao valor de beta, e cortes alfa caso seja encontrada uma melhor solução para alfa.
+
+Código:
 ```
 (defun negamax (node depth alpha beta player generator objective evaluation game-operator &optional (start-time -1) (time-limit -1))
   "Receives a NODE, a max search DEPTH, value of ALPHA, BETA, current PLAYER, the GENERATOR function for the children, the OBJECTIVE node, an EVALUATION function and the GAME-OPERATOR. 34 - 4."
@@ -43,6 +49,7 @@ O algoritmo implementado foi o Negamax com cortes alfa-beta.
         max-value))))
 ```
 ### 3.2 Funções de Geração
+Funções responsáveis por gerar os sucessores de um dado nó:
 ```
 (defun new-child (node operator index1 index2)
   "Generates the child of a given NODE according to OPERATOR, called at INDEX1 and INDEX2."
@@ -68,6 +75,7 @@ O algoritmo implementado foi o Negamax com cortes alfa-beta.
       (nreverse children))))
 ```
 ### 3.3 Função de Verificação do Nó Objetivo
+Função para verificar se um nó é um nó terminal:
 ```
 (defun node-solutionp (node)
   "Receives a NODE and checks if it's state is the problem solution."
@@ -78,12 +86,14 @@ O algoritmo implementado foi o Negamax com cortes alfa-beta.
 )
 ``` 
 ### 3.4 Função de Avaliação
+Função de avaliação de um nó, em que se o jogador 1 estiver a ganhar a avaliação é positiva e se estiver a perder é negativa:
 ```
 (defun evaluate-node (node)
   "Evaluates the score of a given NODE."
   (- (node-score-p1 node) (node-score-p2 node)))
 ```
 ### 3.5 Operador de Jogo
+Operador do jogo, responsável por efetuar as jogadas:
 ```
 (defun game-operator (line-index position-index node)
   "Denotes the play is to be made at line INDEX1 and index INDEX2 of the board in NODE."
@@ -105,6 +115,7 @@ O algoritmo implementado foi o Negamax com cortes alfa-beta.
     nil))
 ```
 ### 3.6 Lógica da jogada do Computador (com Memoização)
+Lógica que trata de ler um movimento do computador com memoização, se a jogada já tiver sido feito anteriormente vai-se buscar o melhor movimento à tabela de transposição, senão corre-se o Negamax:
 ```
 (defun read-computer-move (current-player current-node &optional (computer-time-limit -1))
   "Reads a computer move according to CURRENT-PLAYER and CURRENT-NODE, receives an optional COMPUTER-TIME-LIMIT."
@@ -148,6 +159,7 @@ O algoritmo implementado foi o Negamax com cortes alfa-beta.
         best-move))))
 ```
 ### 3.7 Lógica de um Jogo
+Como se efetuam os turnos de jogo e qual a lógica de um turno, leitura e escrita para interação com o utilizador:
 ```
 (defun game (first-player mode &optional (computer-time-limit 0))
   "Receives a FIRST-PLAYER, the game MODE and a COMPUTER-TIME-LIMIT. Is responsible for the game logic (turns / win condition)."
@@ -206,12 +218,6 @@ O algoritmo implementado foi o Negamax com cortes alfa-beta.
             (print-game-over current-node computer-time-limit)
             (return)))))))
 ```
-### 3.8 Explicação do algoritmo Negamax
-- Verificamos os casos base da recursividade, que é a profundidade limite de procura (no caso desta implementação, é uma constante definida como 10), se o nó atual é um nó terminal, ou seja, é um nó objetivo (no contexto do problema, o nó terminal é um nó cujo estado é o tabuleiro vazio), se o tempo limite de procura foi atingido (um valor, em segundos, entre 1 e 20, inclusive).
-- Inicializamos o valor máximo e geramos os descendentes (sucessores), que são posteriormente ordenados de forma descrescente tendo em conta a sua avaliação.
-- Para cada descendente (sucessor), computamos valor Negamax de forma recursiva, ou seja, para cada criança voltamos a repetir estes passos.
-- São gerados cortes beta caso o valor de alfa seja superior ao valor de beta, e cortes alfa caso seja encontrada uma melhor solução para alfa.
-
 ## 4. Tipos Abstratos de Dados
 ### 4.1 Estado do Jogo (Tabuleiro) e Jogadores
 Uma lista com duas *nested lists*, em que as células representam o número de peças numa dada posição e a linha de índice 0 o jogador 2, a linha de índice 1 o jogador 1 (de forma a que na interface de jogo, o jogador humano fique com o tabuleiro "virado" para si). O jogador 1 é representado com o valor 1, o jogador 2 com o valor -1. 
@@ -261,3 +267,6 @@ Hit Rate da Hash Table: 0/44.
 Número de cortes Alfa: 55657 cortes.  
 Número de cortes Beta: 49136 cortes.  
 Número de Nós Analisados: 150725 nós.  
+## 7. Conclusões
+É possível ver que o algoritmo Negamax está a funcionar corretamente segundo as especificações do mesmo, tais como tempo de pensamento (tempo de pesquisa) e profundidade máxima de pesquisa (que no caso deste projeto, foi 10). No entanto, os valores de cortes Alfa e cortes Beta encontram-se bastante inflacionados.  
+Com isto dito, o projeto encontra-se completamente funcional sem nenhuns erros encontrados e o único requisito que não foi implementado é a procura quiescente.

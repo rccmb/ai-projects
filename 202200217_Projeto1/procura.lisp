@@ -1,5 +1,5 @@
-;;;; search.lisp
-;;;; Independent from the problem, search methods BFS, DFS and A* and helpers for the search methods.
+;;;; procura.lisp
+;;;; Independent from the problem, search methods BFS, DFS, A* and SMA* and helpers for the search methods.
 ;;;; Author: Rodrigo Baptista 202200217
 
 ;;; Domain Independent Node Functions.
@@ -117,12 +117,44 @@
       (let*
         (
           (first-node (pop open)) ; Take first node and remove from open.
+          (solution-node (check-solution (list first-node) objective)) ; Check for a solution. A*
           (children (remove-existing (funcall generator first-node operator 'a-star 0 heuristic) closed 'a-star)) ; Generate children.
-          (solution-node (check-solution (list first-node) objective)) ; Check for a solution.
         )
         (when solution-node (return solution-node))
         (push first-node closed)
         (setf open (order-nodes (append open children))) ; A* PUT-SUCCESSORS-IN-OPEN.
+      )
+    )
+  )
+)
+
+(defun sma-star (initial-node objective generator operator heuristic memory-limit)
+  "Simplified Memory-Bounded A* (SMA*). Receives an INITIAL-NODE, the OBJECTIVE state, the GENERATOR function, the game OPERATOR, an HEURISTIC function and a MEMORY-LIMIT."
+  (let 
+    (
+      (open (list initial-node))
+      (closed '())
+    )
+    (loop while open do
+      (let* 
+        (
+          (first-node (pop open)) 
+          (solution-node (check-solution (list first-node) objective))
+          (children (remove-existing (funcall generator first-node operator 'sma-star 0 heuristic) closed 'sma-star))
+        )
+        (when solution-node (return solution-node))
+        (push first-node closed)
+        (setf open (order-nodes (append open children)))
+        (when (> (length open) memory-limit)
+          (let 
+            ((worst-node (car (last open))))
+            (setf open (butlast open)) ; "Pop" the worst node.
+            (let 
+              ((parent (node-previous worst-node)))
+              (when parent (setf (nth 2 parent) (max (nth 2 parent) (nth 2 worst-node)))) ; Set the heuristic of the parent node to the worst heuristic, (max).
+            )
+          )
+        )
       )
     )
   )

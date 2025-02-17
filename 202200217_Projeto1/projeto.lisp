@@ -30,14 +30,20 @@
               ))
             (heuristic
               (cond
-                ((eq algorithm 'a-star) (read-heuristic))
+                ((or (eq algorithm 'a-star) (eq algorithm 'sma-star)) (read-heuristic))
               ))
+            (memory-limit 
+              (cond 
+                ((eq algorithm 'sma-star) (read-memory-limit))
+              )
+            )
             (start-time (get-internal-real-time)))
           (cond 
             ((node-solutionp initial-node) (format t "Error, the initial node can't be a solution node.~%")) ; Edge-case, the initial node is a solution node, end execution.
             ((eq algorithm 'bfs) (show-result (funcall algorithm initial-node 'node-solutionp 'generate-children 'game-operator) 'bfs start-time))
             ((eq algorithm 'dfs) (show-result (funcall algorithm initial-node 'node-solutionp 'generate-children 'game-operator depth) 'dfs start-time 0 depth))
             ((eq algorithm 'a-star) (show-result (funcall algorithm initial-node 'node-solutionp 'generate-children 'game-operator heuristic) 'a-star start-time heuristic))
+            ((eq algorithm 'sma-star) (show-result (funcall algorithm initial-node 'node-solutionp 'generate-children 'game-operator heuristic memory-limit) 'sma-star start-time heuristic 0 memory-limit))
           )
         )
       )
@@ -97,6 +103,21 @@
   )
 )
 
+(defun read-memory-limit ()
+  (progn 
+    (format t "What's the memory limit of SMA* (number of nodes to keep), number in range [100, 500]? ~%")
+    (let 
+      ((memory-limit (read)))
+      (if (and (numberp memory-limit) (>= memory-limit 100) (<= memory-limit 500))
+        memory-limit
+        (progn
+          (format t "Invalid choice. Please try again.~%")
+          (read-memory-limit))
+      ) 
+    )
+  )
+)
+
 (defun read-heuristic ()
   (progn 
     (format t "What heuristic function use? ~%")
@@ -120,6 +141,7 @@
     (format t "1 - BFS ~%")
     (format t "2 - DFS ~%")
     (format t "3 - A* ~%")
+    (format t "4 - SMA* ~%")
     (format t "Algorithm: ")
     (let 
       ((algorithm (read)))
@@ -127,6 +149,7 @@
         ((= algorithm 1) 'bfs)
         ((= algorithm 2) 'dfs)
         ((= algorithm 3) 'a-star)
+        ((= algorithm 4) 'sma-star)
         (t (read-algorithm))
       )
     )
@@ -148,7 +171,7 @@
   )
 )
 
-(defun show-result (solution algorithm start-time &optional (heuristic 0) (max-depth 0))
+(defun show-result (solution algorithm start-time &optional (heuristic 0) (max-depth 0) (memory-limit 0))
   (let* 
     (
       (end-time (get-internal-real-time))
@@ -165,6 +188,13 @@
           (progn 
             (format stream "Results from A*: ~%")
             (format stream "Heuristic used: ~A~%" heuristic)
+          )
+        )
+        ((eq algorithm 'sma-star) 
+          (progn 
+            (format stream "Results from SMA*: ~%")
+            (format stream "Heuristic used: ~A~%" heuristic)
+            (format stream "Memory Limit: ~d~%" memory-limit)
           )
         )
       )
@@ -197,7 +227,7 @@
                 (format stream "NODE:~%")
                 (format stream "- State: ~A~%" (node-state node))
                 (format stream "- Depth: ~D~%" (node-depth node))
-                (if (eq algorithm 'a-star)
+                (if (or (eq algorithm 'a-star) (eq algorithm 'sma-star))
                   (progn
                     (format stream "- Heuristic: ~A~%" (node-heuristic node))
                     (format stream "- Cost: ~A~%" (node-cost node))

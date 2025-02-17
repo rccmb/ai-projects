@@ -502,3 +502,336 @@ NODE:
 - Depth: 37
 - Heuristic: 0
 - Cost: 37
+Results from SMA*: 
+Heuristic used: GAME-HEURISTIC-BASE
+Memory Limit: 100
+Time taken: 12399ms
+The number of total generated nodes is: 2316
+The number of total expanded nodes is: 815
+The penetrance is: 0.01036
+Solution depth is: 24
+Initial State: ((1 2 3 4 5 6) (6 5 4 3 2 1))
+NODE:
+- State: ((1 2 3 4 5 6) (6 5 4 3 2 1))
+- Depth: 0
+- Heuristic: 0
+- Cost: 0
+NODE:
+- State: ((2 3 4 5 6 0) (7 5 4 3 2 1))
+- Depth: 1
+- Heuristic: 42
+- Cost: 43
+NODE:
+- State: ((2 3 4 5 6 0) (7 5 4 0 3 2))
+- Depth: 2
+- Heuristic: 41
+- Cost: 43
+NODE:
+- State: ((2 3 4 5 6 0) (7 0 5 1 4 3))
+- Depth: 3
+- Heuristic: 40
+- Cost: 43
+NODE:
+- State: ((2 3 4 5 6 0) (7 0 5 0 0 3))
+- Depth: 4
+- Heuristic: 35
+- Cost: 39
+NODE:
+- State: ((0 3 4 5 6 0) (8 0 5 0 0 3))
+- Depth: 5
+- Heuristic: 34
+- Cost: 39
+NODE:
+- State: ((1 0 4 5 6 0) (9 0 5 0 0 3))
+- Depth: 6
+- Heuristic: 33
+- Cost: 39
+NODE:
+- State: ((1 0 0 6 7 1) (0 1 6 1 1 4))
+- Depth: 7
+- Heuristic: 28
+- Cost: 35
+NODE:
+- State: ((1 0 0 6 7 1) (0 1 6 1 0 0))
+- Depth: 8
+- Heuristic: 23
+- Cost: 31
+NODE:
+- State: ((2 1 1 0 7 1) (1 2 7 1 0 0))
+- Depth: 9
+- Heuristic: 23
+- Cost: 32
+NODE:
+- State: ((0 0 1 0 7 1) (1 2 7 1 0 0))
+- Depth: 10
+- Heuristic: 20
+- Cost: 30
+NODE:
+- State: ((0 0 1 0 7 1) (0 0 7 1 0 0))
+- Depth: 11
+- Heuristic: 17
+- Cost: 28
+NODE:
+- State: ((0 0 0 0 7 1) (0 0 7 1 0 0))
+- Depth: 12
+- Heuristic: 16
+- Cost: 28
+NODE:
+- State: ((0 0 0 1 8 2) (0 0 0 2 1 1))
+- Depth: 13
+- Heuristic: 15
+- Cost: 28
+NODE:
+- State: ((1 1 1 2 0 2) (1 1 1 0 1 1))
+- Depth: 14
+- Heuristic: 12
+- Cost: 26
+NODE:
+- State: ((1 1 1 0 1 0) (1 1 1 0 1 1))
+- Depth: 15
+- Heuristic: 9
+- Cost: 24
+NODE:
+- State: ((1 1 1 0 0 0) (1 1 1 0 1 1))
+- Depth: 16
+- Heuristic: 8
+- Cost: 24
+NODE:
+- State: ((1 1 1 0 0 0) (1 1 0 0 1 1))
+- Depth: 17
+- Heuristic: 7
+- Cost: 24
+NODE:
+- State: ((1 1 1 0 0 0) (1 0 0 0 1 1))
+- Depth: 18
+- Heuristic: 6
+- Cost: 24
+NODE:
+- State: ((1 1 1 0 0 0) (0 0 0 0 1 1))
+- Depth: 19
+- Heuristic: 5
+- Cost: 24
+NODE:
+- State: ((0 1 1 0 0 0) (0 0 0 0 1 1))
+- Depth: 20
+- Heuristic: 4
+- Cost: 24
+NODE:
+- State: ((0 0 1 0 0 0) (0 0 0 0 1 1))
+- Depth: 21
+- Heuristic: 3
+- Cost: 24
+NODE:
+- State: ((0 0 0 0 0 0) (0 0 0 0 1 1))
+- Depth: 22
+- Heuristic: 2
+- Cost: 24
+NODE:
+- State: ((0 0 0 0 0 0) (0 0 0 0 1 0))
+- Depth: 23
+- Heuristic: 1
+- Cost: 24
+NODE:
+- State: ((0 0 0 0 0 0) (0 0 0 0 0 0))
+- Depth: 24
+- Heuristic: 0
+- Cost: 24
+Results from SMA*: 
+Heuristic used: GAME-HEURISTIC-ADVANCED
+Memory Limit: 100
+Time taken: 592ms
+The number of total generated nodes is: 543
+The number of total expanded nodes is: 112
+The penetrance is: 0.06814
+Solution depth is: 37
+Initial State: ((1 2 3 4 5 6) (6 5 4 3 2 1))
+NODE:
+- State: ((1 2 3 4 5 6) (6 5 4 3 2 1))
+- Depth: 0
+- Heuristic: 0
+- Cost: 0
+NODE:
+- State: ((2 3 4 5 0 6) (7 5 4 3 2 1))
+- Depth: 1
+- Heuristic: 51.5
+- Cost: 52.5
+NODE:
+- State: ((2 3 4 5 0 7) (0 6 5 4 3 2))
+- Depth: 2
+- Heuristic: 50.5
+- Cost: 52.5
+NODE:
+- State: ((2 3 4 5 0 8) (0 0 6 5 4 3))
+- Depth: 3
+- Heuristic: 49.5
+- Cost: 52.5
+NODE:
+- State: ((3 4 5 0 0 8) (1 0 6 5 4 3))
+- Depth: 4
+- Heuristic: 48.5
+- Cost: 52.5
+NODE:
+- State: ((3 4 5 0 0 8) (0 0 6 5 4 3))
+- Depth: 5
+- Heuristic: 47.5
+- Cost: 52.5
+NODE:
+- State: ((3 4 5 0 1 9) (0 0 0 6 5 4))
+- Depth: 6
+- Heuristic: 46.5
+- Cost: 52.5
+NODE:
+- State: ((3 4 5 0 0 9) (0 0 0 6 5 4))
+- Depth: 7
+- Heuristic: 45.5
+- Cost: 52.5
+NODE:
+- State: ((4 5 0 0 0 9) (1 1 0 6 5 4))
+- Depth: 8
+- Heuristic: 44.5
+- Cost: 52.5
+NODE:
+- State: ((4 5 0 0 0 9) (1 0 0 6 5 4))
+- Depth: 9
+- Heuristic: 43.5
+- Cost: 52.5
+NODE:
+- State: ((4 5 0 0 0 9) (0 0 0 6 5 4))
+- Depth: 10
+- Heuristic: 42.5
+- Cost: 52.5
+NODE:
+- State: ((4 5 0 1 1 10) (0 0 0 0 6 5))
+- Depth: 11
+- Heuristic: 41.5
+- Cost: 52.5
+NODE:
+- State: ((4 5 0 0 1 10) (0 0 0 0 6 5))
+- Depth: 12
+- Heuristic: 40.5
+- Cost: 52.5
+NODE:
+- State: ((4 5 0 0 0 10) (0 0 0 0 6 5))
+- Depth: 13
+- Heuristic: 39.5
+- Cost: 52.5
+NODE:
+- State: ((5 0 0 0 0 10) (1 1 1 0 6 5))
+- Depth: 14
+- Heuristic: 38.5
+- Cost: 52.5
+NODE:
+- State: ((5 0 0 0 0 10) (1 1 0 0 6 5))
+- Depth: 15
+- Heuristic: 37.5
+- Cost: 52.5
+NODE:
+- State: ((5 0 0 0 0 10) (1 0 0 0 6 5))
+- Depth: 16
+- Heuristic: 36.5
+- Cost: 52.5
+NODE:
+- State: ((5 0 0 0 0 10) (0 0 0 0 6 5))
+- Depth: 17
+- Heuristic: 35.5
+- Cost: 52.5
+NODE:
+- State: ((5 0 1 1 1 11) (0 0 0 0 0 6))
+- Depth: 18
+- Heuristic: 34.5
+- Cost: 52.5
+NODE:
+- State: ((5 0 0 1 1 11) (0 0 0 0 0 6))
+- Depth: 19
+- Heuristic: 33.5
+- Cost: 52.5
+NODE:
+- State: ((5 0 0 0 1 11) (0 0 0 0 0 6))
+- Depth: 20
+- Heuristic: 32.5
+- Cost: 52.5
+NODE:
+- State: ((5 0 0 0 0 11) (0 0 0 0 0 6))
+- Depth: 21
+- Heuristic: 31.5
+- Cost: 52.5
+NODE:
+- State: ((0 0 0 0 0 11) (1 1 1 1 0 6))
+- Depth: 22
+- Heuristic: 30.5
+- Cost: 52.5
+NODE:
+- State: ((0 0 0 0 0 11) (1 1 1 0 0 6))
+- Depth: 23
+- Heuristic: 29.5
+- Cost: 52.5
+NODE:
+- State: ((0 0 0 0 0 11) (1 1 0 0 0 6))
+- Depth: 24
+- Heuristic: 28.5
+- Cost: 52.5
+NODE:
+- State: ((0 0 0 0 0 11) (1 0 0 0 0 6))
+- Depth: 25
+- Heuristic: 27.5
+- Cost: 52.5
+NODE:
+- State: ((0 0 0 0 0 11) (0 0 0 0 0 6))
+- Depth: 26
+- Heuristic: 26.5
+- Cost: 52.5
+NODE:
+- State: ((0 1 1 1 1 12) (0 0 0 0 0 0))
+- Depth: 27
+- Heuristic: 23.7
+- Cost: 50.7
+NODE:
+- State: ((1 2 2 2 0 0) (1 1 1 1 1 1))
+- Depth: 28
+- Heuristic: 22.1
+- Cost: 50.1
+NODE:
+- State: ((1 0 3 0 0 0) (1 1 1 1 1 1))
+- Depth: 29
+- Heuristic: 18.3
+- Cost: 47.3
+NODE:
+- State: ((1 0 3 0 0 0) (1 1 1 1 1 0))
+- Depth: 30
+- Heuristic: 17.2
+- Cost: 47.2
+NODE:
+- State: ((1 0 3 0 0 0) (1 1 1 1 0 0))
+- Depth: 31
+- Heuristic: 15.8
+- Cost: 46.8
+NODE:
+- State: ((1 0 3 0 0 0) (1 1 1 0 0 0))
+- Depth: 32
+- Heuristic: 14.4
+- Cost: 46.4
+NODE:
+- State: ((1 0 3 0 0 0) (1 1 0 0 0 0))
+- Depth: 33
+- Heuristic: 13.0
+- Cost: 46.0
+NODE:
+- State: ((1 0 3 0 0 0) (1 0 0 0 0 0))
+- Depth: 34
+- Heuristic: 11.6
+- Cost: 45.6
+NODE:
+- State: ((1 0 3 0 0 0) (0 0 0 0 0 0))
+- Depth: 35
+- Heuristic: 10.5
+- Cost: 45.5
+NODE:
+- State: ((2 1 0 0 0 0) (0 0 0 0 0 0))
+- Depth: 36
+- Heuristic: 9.5
+- Cost: 45.5
+NODE:
+- State: ((0 0 0 0 0 0) (0 0 0 0 0 0))
+- Depth: 37
+- Heuristic: 0
+- Cost: 37
