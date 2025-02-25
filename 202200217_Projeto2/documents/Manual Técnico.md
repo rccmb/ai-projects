@@ -12,8 +12,8 @@ O manual detalha a estrutura do código, os algoritmos implementados, os tipos a
 O código divide-se em três ficheiros separados, com as respetivas responsabilidades:  
 • **jogo.lisp**: Carrega os outros ficheiros de código, escreve e lê de ficheiros e trata da interação com o utilizador.  
 • **puzzle.lisp**: Código relacionado com o problema.  
-• **algoritmo.lisp**: Implementação do algoritmo de jogo (Negamax com cortes alfa-beta) independente do domínio.  
-
+• **algoritmo.lisp**: Implementação do algoritmo de jogo (Negamax com cortes alfa-beta) independente do domínio.    
+• **log.dat**: Ficheiro que será produzido depois de ser executada uma partida. Armazena os resultados de uma partida e resultados de partidas posteriores serão anexados ao conteúdo já presente no ficheiro.  
 ## 3. Algoritmo Implementado e Funções Auxiliares
 O algoritmo implementado foi o Negamax com cortes alfa-beta.  
 ### 3.1 Algoritmo

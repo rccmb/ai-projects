@@ -12,6 +12,8 @@ A estrutura de ficheiros do código é a seguinte:
 • **projeto.lisp**: Carrega os outros ficheiros de código, escreve e lê ficheiros, e trata da interação com o utilizador.  
 • **puzzle.lisp**: Código relacionado com o problema.  
 • **procura.lisp**: Contém a implementação de: Procura em Largura (BFS), Procura em Profundidade (DFS), A\* e SMA\*, independente do domínio do problema.  
+• **problemas.dat**: Contém a lista de problemas a resolver, separados por linhas, em que cada problema é uma lista de duas listas com seis átomos cada.  
+• **log.dat**: Ficheiro que será produzido depois de ser executada uma procura. Armazena os resultados de uma procura e resultados de procuras posteriores serão anexados ao conteúdo já presente no ficheiro.  
 ## 3. Algoritmo Implementado e Funções Auxiliares
 Nesta secção estão os algoritmos implementados, uma breve explicação sobre os mesmos e as funções auxiliares utilizadas.  
 ### 3.1 Algoritmo BFS

@@ -222,6 +222,6 @@ NODE:
 ```
 Nota: É crucial que, sempre que se inicie uma nova sessão de procura, abra uma nova janela do Listener e volte a correr o ```(initialize)```.  
 ## 3. Informação Produzida
-No mesmo diretório em que colocou os três ficheiros do puzzle, irá ser produzido um ficheiro denominado log.dat, este ficheiro mantém um registo de todas as procuras efetuadas no sistema que está a correr o programa e oferece uma análise estatística de todos os elementos presentes em cada procura feita, tais como caminho até à solução, profundidade da mesma e medidas de desempenho.    
+No mesmo diretório em que colocou os quatro ficheiros do puzzle (puzzle.lisp, projeto.lisp, procura.lisp e problemas.dat), irá ser produzido um ficheiro denominado log.dat, este ficheiro mantém um registo de todas as procuras efetuadas no sistema que está a correr o programa e oferece uma análise estatística de todos os elementos presentes em cada procura feita, tais como caminho até à solução, profundidade da mesma e medidas de desempenho.    
 ## 4. Limitações
 Não existem limitações de natureza do utilizador no programa.   
