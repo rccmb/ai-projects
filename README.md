@@ -18,7 +18,7 @@ You can view the project specifications [here](projeto1.pdf).
 
 ## Project 2
 
-The second project consists of implementing a "computer" player, where the Adji-boto game can be played "human vs computer" or "computer vs computer":
+The second project consists of implementing a "computer" player, where the Adji-boto game can be played "human vs computer" or "computer vs computer", the following algorithm was implemented:
 
 • Negamax with α-β pruning.
 
